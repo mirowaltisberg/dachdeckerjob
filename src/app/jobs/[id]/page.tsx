@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { JsonLd } from "@/components/json-ld";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { getJobListingById, getSimilarJobListings } from "@/lib/job-catalog";
 import type { JobListing } from "@/lib/job-types";
 import { JobPrimaryAction, JobShareActions, RecentlyViewedJobs } from "@/components/job-detail-client-tools";
@@ -303,13 +304,14 @@ export default async function JobDetailsPage(props: JobDetailsPageProps) {
       </header>
 
       <main className="flex-1 container mx-auto px-4 sm:px-6 py-5 sm:py-8 max-w-5xl pb-32 lg:pb-8">
-        <Link
-          href="/"
-          className="hidden sm:inline-flex items-center text-sm text-slate-500 hover:text-primary mb-4 sm:mb-6 transition-colors"
-        >
-          <ArrowLeft className="h-4 w-4 mr-1 shrink-0" />
-          <span className="truncate">Zurück zu den Suchergebnissen</span>
-        </Link>
+        <Breadcrumbs
+          items={[
+            { label: "Startseite", href: "/" },
+            { label: "Elektrojobs", href: "/" },
+            { label: job.title },
+          ]}
+          className="mb-4 sm:mb-6"
+        />
 
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
           <div className="flex-1 min-w-0 space-y-6 sm:space-y-8">
