@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { TOP_LANDING_PAGES, getLandingPath } from "@/lib/landing-pages";
+import { TOP_LANDING_PAGES, getLandingPath, toRoleSlug, toCantonSlug } from "@/lib/landing-pages";
 
-// SEO-DECISION: Canonical role names for footer navigation (top search terms)
 const FOOTER_ROLES = [
   "Elektroinstallateur EFZ",
   "Montage-Elektriker EFZ",
@@ -18,20 +17,12 @@ const FOOTER_ROLES = [
   "Betriebselektriker",
 ];
 
-// SEO-DECISION: Major Swiss cantons for footer links (highest job demand)
+const DEFAULT_CANTON = "ZH";
+const DEFAULT_ROLE = "Elektroinstallateur EFZ";
+
 const FOOTER_CANTONS = [
-  { label: "Zürich", query: "ZH" },
-  { label: "Bern", query: "BE" },
-  { label: "Basel", query: "BS" },
-  { label: "Aargau", query: "AG" },
-  { label: "St. Gallen", query: "SG" },
-  { label: "Luzern", query: "LU" },
-  { label: "Solothurn", query: "SO" },
-  { label: "Zug", query: "ZG" },
-  { label: "Thurgau", query: "TG" },
-  { label: "Graubünden", query: "GR" },
-  { label: "Schaffhausen", query: "SH" },
-  { label: "Fribourg", query: "FR" },
+  "Zürich", "Bern", "Basel", "Aargau", "St. Gallen", "Luzern",
+  "Solothurn", "Zug", "Thurgau", "Graubünden", "Schaffhausen", "Fribourg",
 ];
 
 /**
@@ -58,7 +49,7 @@ export function SiteFooter() {
             </p>
           </div>
 
-          {/* Job roles navigation */}
+          {/* Job roles — each links to its ZH landing page for maximum link equity */}
           <nav aria-label="Berufe">
             <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-3">
               Berufe
@@ -67,7 +58,7 @@ export function SiteFooter() {
               {FOOTER_ROLES.map((role) => (
                 <li key={role}>
                   <Link
-                    href={`/?q=${encodeURIComponent(role)}`}
+                    href={`/elektrojobs/${toRoleSlug(role)}/${toCantonSlug(DEFAULT_CANTON)}`}
                     className="text-sm hover:text-white transition-colors duration-150"
                   >
                     {role}
@@ -77,19 +68,19 @@ export function SiteFooter() {
             </ul>
           </nav>
 
-          {/* Canton navigation */}
+          {/* Canton navigation — each links to the Elektroinstallateur page for that canton */}
           <nav aria-label="Kantone">
             <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-3">
               Jobs nach Kanton
             </h3>
             <ul className="space-y-1.5">
               {FOOTER_CANTONS.map((canton) => (
-                <li key={canton.query}>
+                <li key={canton}>
                   <Link
-                    href={`/?loc=${encodeURIComponent(canton.label)}`}
+                    href={`/elektrojobs/${toRoleSlug(DEFAULT_ROLE)}/${toCantonSlug(canton)}`}
                     className="text-sm hover:text-white transition-colors duration-150"
                   >
-                    Elektrojobs {canton.label}
+                    Elektrojobs {canton}
                   </Link>
                 </li>
               ))}

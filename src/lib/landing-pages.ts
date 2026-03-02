@@ -229,6 +229,30 @@ const CANTON_CONTENT: Record<string, CantonContent> = {
     context:
       "Der Kanton Zug bietet als wirtschaftsstarker Standort überdurchschnittliche Löhne und spannende Projekte im Bereich Gebäudetechnik und Hightech-Infrastruktur.",
   },
+  TG: {
+    name: "Thurgau",
+    abbr: "TG",
+    context:
+      "Der Kanton Thurgau bietet als wachsender Wirtschaftsstandort in der Ostschweiz zunehmend Chancen für Elektro-Fachkräfte — besonders in Industrie, Wohnungsbau und Landwirtschaftstechnik.",
+  },
+  GR: {
+    name: "Graubünden",
+    abbr: "GR",
+    context:
+      "Im Kanton Graubünden sind Elektro-Fachkräfte gefragt — von Tourismusinfrastruktur und Bergbahnen über Energieprojekte bis zu Neubauten in den Ferienorten.",
+  },
+  SH: {
+    name: "Schaffhausen",
+    abbr: "SH",
+    context:
+      "Der Kanton Schaffhausen bietet als kompakter Industriestandort attraktive Stellen für Elektro-Fachkräfte, insbesondere in der Maschinenindustrie und im Anlagenbau.",
+  },
+  FR: {
+    name: "Fribourg",
+    abbr: "FR",
+    context:
+      "Der zweisprachige Kanton Fribourg wächst dynamisch und bietet Elektro-Fachkräften vielfältige Möglichkeiten in Wohnungsbau, Industrie und öffentlicher Infrastruktur.",
+  },
 };
 
 // --- All role keys ---

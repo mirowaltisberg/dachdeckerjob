@@ -9,12 +9,34 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["lucide-react", "@vercel/analytics", "radix-ui"],
   },
 
-  // SEO-DECISION: Prevent search engines from indexing API responses
-  async headers() {
+  async redirects() {
     return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.elektrojob.ch" }],
+        destination: "https://elektrojob.ch/:path*",
+        permanent: true,
+      },
+    ];
+  },
+
+  async headers() {
+    const securityHeaders = [
+      { key: "X-Content-Type-Options", value: "nosniff" },
+      { key: "X-Frame-Options", value: "SAMEORIGIN" },
+      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+      { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+    ];
+
+    return [
+      {
+        source: "/(.*)",
+        headers: securityHeaders,
+      },
       {
         source: "/api/:path*",
         headers: [
+          ...securityHeaders,
           { key: "X-Robots-Tag", value: "noindex, nofollow" },
         ],
       },
