@@ -40,7 +40,8 @@ function getDisplayJobId(job: JobListing): string {
     return job.id.toUpperCase();
   }
   if (job.source === "scraped") {
-    return `LIVE-${job.id}`;
+    const hash = job.id.replace(/^scraped-/, "");
+    return `ELK-${hash.slice(0, 8).toUpperCase()}`;
   }
   return `ELK-${job.id.padStart(4, "0")}`;
 }
