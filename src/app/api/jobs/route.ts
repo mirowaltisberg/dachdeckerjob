@@ -10,7 +10,7 @@ function parseRemote(value: string | null): RemoteFilter {
 }
 
 function parseSort(value: string | null): JobSort {
-  if (value === "newest" || value === "oldest" || value === "relevance" || value === "company") {
+  if (value === "newest" || value === "oldest" || value === "relevance") {
     return value;
   }
   return "newest";

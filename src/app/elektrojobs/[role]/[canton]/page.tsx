@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Briefcase, CalendarDays, Clock, MapPin, Wallet } from "lucide-react";
+import { CalendarDays, Clock, MapPin, Wallet } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -230,10 +230,6 @@ export default async function LandingRolePage({ params }: LandingPageProps) {
                       >
                         {job.source === "scraped" ? "Live" : "Demo"}
                       </Badge>
-                    </div>
-                    <div className="flex items-center gap-1 text-sm font-medium text-slate-700 mb-2.5">
-                      <Briefcase className="h-4 w-4 text-primary" />
-                      {job.company}
                     </div>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-slate-100 rounded-lg border border-slate-200 overflow-hidden">
                       <div className="bg-white px-2.5 py-2 flex flex-col gap-0.5">

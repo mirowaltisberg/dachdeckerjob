@@ -444,10 +444,6 @@ function matchesPostedWithinDays(job: JobListing, postedWithinDays: number | nul
 
 function sortJobs(jobs: JobListing[], sort: JobSort): JobListing[] {
   return [...jobs].sort((a, b) => {
-    if (sort === "company") {
-      return a.company.localeCompare(b.company, "de-CH");
-    }
-
     if (sort === "oldest") {
       return parseIsoDateMs(a.datePosted) - parseIsoDateMs(b.datePosted);
     }
@@ -546,7 +542,7 @@ function normalizeSearchParams(params: JobSearchParams): NormalizedParams {
   const postedWithinDays =
     Number.isFinite(postedWithinDaysRaw) && postedWithinDaysRaw > 0 ? postedWithinDaysRaw : null;
 
-  const sort: JobSort = ["newest", "oldest", "relevance", "company"].includes(params.sort ?? "")
+  const sort: JobSort = ["newest", "oldest", "relevance"].includes(params.sort ?? "")
     ? (params.sort as JobSort)
     : "newest";
 

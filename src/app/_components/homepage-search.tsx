@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpWideNarrow,
-  Briefcase,
   Building2,
   CalendarDays,
   Clock,
@@ -78,9 +77,9 @@ const EMPLOYER_MENU_ITEMS = [
   { label: "Support kontaktieren", href: "#" },
 ];
 
-const PAGE_SIZE = 30;
+const PAGE_SIZE = 12;
 const INITIAL_MOBILE_PAGE_SIZE = 5;
-const MOBILE_LOAD_MORE_SIZE = 15;
+const MOBILE_LOAD_MORE_SIZE = 12;
 const FALLBACK_GENERATED_COUNT = 150;
 const SCRAPE_STALE_HOURS = 72;
 const DEFAULT_RADIUS_KM = "25";
@@ -236,10 +235,6 @@ function matchesPostedWithin(job: JobListing, postedWithinDays: string): boolean
 
 function sortJobs(jobs: JobListing[], sort: JobSort): JobListing[] {
   return [...jobs].sort((a, b) => {
-    if (sort === "company") {
-      return a.company.localeCompare(b.company, "de-CH");
-    }
-
     if (sort === "oldest") {
       return Date.parse(a.datePosted) - Date.parse(b.datePosted);
     }
@@ -365,7 +360,7 @@ export function HomepageSearch() {
     })
       .then((r) => r.json())
       .then((data: string[]) => setPlzSuggestions(data))
-      .catch(() => {});
+      .catch(() => { });
     return () => controller.abort();
   }, [location]);
 
@@ -658,20 +653,20 @@ export function HomepageSearch() {
 
       <main className="flex-1">
         <section
-          className={`relative z-20 bg-primary/5 border-b overflow-visible ${
-            hasSearched
-              ? "pt-8 sm:pt-10 md:pt-12 pb-4 sm:pb-6 md:pb-8"
-              : "pt-10 sm:pt-14 md:pt-20 pb-5 sm:pb-7 md:pb-9"
-          }`}
+          className={`relative z-20 bg-primary/5 border-b overflow-visible ${hasSearched
+            ? "pt-8 sm:pt-10 md:pt-12 pb-4 sm:pb-6 md:pb-8"
+            : "pt-10 sm:pt-14 md:pt-20 pb-5 sm:pb-7 md:pb-9"
+            }`}
         >
           <div className="container mx-auto px-4 sm:px-6 text-center">
             <h1 className="animate-hero-title text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-4 sm:mb-6 tracking-tight leading-tight">
               Finde deinen nächsten <span className="text-primary">Elektrojob</span>
               <br className="hidden sm:block" />
               <span className="sm:hidden"> </span>in der Schweiz
+              <span className="block text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-700 mt-2 sm:mt-4">als Elektroinstallateur & Co.</span>
             </h1>
             <p className="animate-hero-subtitle text-base sm:text-lg text-slate-600 mb-8 sm:mb-10 max-w-2xl mx-auto px-1">
-              Live-Stellen mit smarter Filterung für Elektro-Fachkräfte in der ganzen Schweiz.
+              Live-Stellen mit smarter Filterung für Elektro-Fachkräfte in der ganzen Schweiz. Finde den perfekten Job (Vollzeit / Teilzeit Pensum).
             </p>
 
             <form
@@ -700,11 +695,10 @@ export function HomepageSearch() {
                 <div className={`flex w-full flex-col md:w-auto md:flex-row md:items-center transition-[gap] duration-300 ${hasLocationDraft ? "gap-2 sm:gap-3" : "gap-0"}`}>
                   <div
                     aria-hidden={!hasLocationDraft}
-                    className={`relative overflow-hidden transition-all duration-500 ease-out ${
-                      hasLocationDraft
-                        ? "max-h-12 opacity-100 translate-y-0 md:max-w-[220px] md:translate-x-0 md:border-l md:border-slate-200 md:pl-3"
-                        : "max-h-0 opacity-0 -translate-y-2 pointer-events-none md:max-w-0 md:translate-x-3 md:pl-0 md:border-l-0"
-                    }`}
+                    className={`relative overflow-hidden transition-all duration-500 ease-out ${hasLocationDraft
+                      ? "max-h-12 opacity-100 translate-y-0 md:max-w-[220px] md:translate-x-0 md:border-l md:border-slate-200 md:pl-3"
+                      : "max-h-0 opacity-0 -translate-y-2 pointer-events-none md:max-w-0 md:translate-x-3 md:pl-0 md:border-l-0"
+                      }`}
                   >
                     <label htmlFor="radius-km" className="sr-only">
                       Maximaler Umkreis
@@ -747,15 +741,14 @@ export function HomepageSearch() {
 
         <section
           ref={resultsRef}
-          className={`relative z-10 bg-slate-50 pb-24 sm:pb-16 ${
-            hasSearched ? "pt-4 sm:pt-6" : "pt-6 sm:pt-8"
-          }`}
+          className={`relative z-10 bg-slate-50 pb-24 sm:pb-16 ${hasSearched ? "pt-4 sm:pt-6" : "pt-6 sm:pt-8"
+            }`}
         >
           <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
             <AnimateOnScroll className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
               <div>
                 <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-                  {hasSearched ? "Suchergebnisse" : "Aktuelle Elektrojobs"}
+                  {hasSearched ? "Suchergebnisse" : "Aktuelle Elektrojobs (Vollzeit/Teilzeit Pensum)"}
                 </h2>
                 {hasActiveLocation && (
                   <p className="text-xs text-slate-500 mt-1">
@@ -831,7 +824,6 @@ export function HomepageSearch() {
               >
                 <option value="newest">Neueste zuerst</option>
                 <option value="relevance">Relevanz</option>
-                <option value="company">Firma A-Z</option>
                 <option value="oldest">Älteste zuerst</option>
               </select>
             </AnimateOnScroll>
@@ -899,12 +891,12 @@ export function HomepageSearch() {
                   {jobs.map((job, index) => {
                     const href = isGeneratedJob(job)
                       ? {
-                          pathname: `/jobs/${job.id}`,
-                          query: {
-                            q: job.searchContext?.query ?? activeQuery,
-                            loc: job.searchContext?.location ?? activeLocation,
-                          },
-                        }
+                        pathname: `/jobs/${job.id}`,
+                        query: {
+                          q: job.searchContext?.query ?? activeQuery,
+                          loc: job.searchContext?.location ?? activeLocation,
+                        },
+                      }
                       : `/jobs/${job.id}`;
 
                     return (
@@ -945,12 +937,6 @@ export function HomepageSearch() {
                                   Remote
                                 </Badge>
                               )}
-                            </div>
-
-                            {/* Company */}
-                            <div className="flex items-center gap-1 text-sm font-medium text-slate-700 mb-3">
-                              <Briefcase className="h-4 w-4 text-primary" />
-                              {job.company}
                             </div>
 
                             {/* Structured info grid */}
@@ -1170,17 +1156,15 @@ export function HomepageSearch() {
                   {[
                     { value: "newest", label: "Neueste zuerst" },
                     { value: "relevance", label: "Relevanz" },
-                    { value: "company", label: "Firma A-Z" },
                     { value: "oldest", label: "Älteste zuerst" },
                   ].map((item) => (
                     <button
                       key={item.value}
                       type="button"
-                      className={`w-full text-left rounded-lg border px-3 py-2 text-sm transition-colors ${
-                        sortBy === item.value
-                          ? "border-primary bg-primary/10 text-primary"
-                          : "border-slate-200 text-slate-700 hover:border-slate-300"
-                      }`}
+                      className={`w-full text-left rounded-lg border px-3 py-2 text-sm transition-colors ${sortBy === item.value
+                        ? "border-primary bg-primary/10 text-primary"
+                        : "border-slate-200 text-slate-700 hover:border-slate-300"
+                        }`}
                       onClick={() => {
                         setSortBy(item.value as JobSort);
                         setIsSortSheetOpen(false);

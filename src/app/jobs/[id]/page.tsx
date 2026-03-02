@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   ArrowLeft,
-  Briefcase,
   Building2,
   CalendarDays,
   CheckCircle2,
@@ -262,13 +261,13 @@ export async function generateMetadata(props: JobDetailsPageProps): Promise<Meta
   const description = job.description.slice(0, 160);
 
   return {
-    title: `${job.title} bei ${job.company} | elektrojob.ch`,
+    title: `${job.title} | elektrojob.ch`,
     description,
     alternates: {
       canonical: `/jobs/${job.id}`,
     },
     openGraph: {
-      title: `${job.title} bei ${job.company}`,
+      title: `${job.title}`,
       description,
       type: "article",
       url: `/jobs/${job.id}`,
@@ -336,11 +335,6 @@ export default async function JobDetailsPage(props: JobDetailsPageProps) {
                     <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-3 sm:mb-4 break-words">
                       {job.title}
                     </h1>
-                    <div className="flex items-center gap-1 text-sm font-medium text-slate-900 mb-4">
-                      <Briefcase className="h-5 w-5 text-primary" />
-                      {job.company}
-                    </div>
-
                     {/* Structured info grid */}
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-slate-100 rounded-xl border border-slate-200 overflow-hidden">
                       <div className="bg-white px-3 sm:px-4 py-3 flex flex-col gap-0.5">
@@ -441,7 +435,7 @@ export default async function JobDetailsPage(props: JobDetailsPageProps) {
                       className="block rounded-lg border border-slate-200 px-3 py-2 hover:border-primary/40 hover:bg-primary/5 transition-colors"
                     >
                       <p className="text-sm font-semibold text-slate-900 line-clamp-1">{item.title}</p>
-                      <p className="text-xs text-slate-500 line-clamp-1">{item.company} · {item.location}</p>
+                      <p className="text-xs text-slate-500 line-clamp-1">{item.location}</p>
                     </Link>
                   ))}
                 </div>

@@ -1,7 +1,7 @@
 import type { Job } from "@/lib/mock-data";
 
 export type JobSource = "mock" | "generated" | "scraped";
-export type JobSort = "newest" | "oldest" | "relevance" | "company";
+export type JobSort = "newest" | "oldest" | "relevance";
 export type RemoteFilter = "any" | "true" | "false";
 
 export interface SearchContext {
