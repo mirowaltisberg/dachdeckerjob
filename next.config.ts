@@ -9,17 +9,6 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["lucide-react", "@vercel/analytics", "radix-ui"],
   },
 
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.elektrojob.ch" }],
-        destination: "https://elektrojob.ch/:path*",
-        permanent: true,
-      },
-    ];
-  },
-
   async headers() {
     const securityHeaders = [
       { key: "X-Content-Type-Options", value: "nosniff" },
