@@ -19,13 +19,11 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://elektrojob.ch";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    // SEO-DECISION: Domain removed from default title per Seobility audit —
-    // domain in title is penalized. Template keeps "elektrojob.ch" for inner pages.
-    default: "Elektrojobs Schweiz — Offene Stellen für Elektroinstallateur & Co.",
+    default: "Elektro Jobs Schweiz 2026 | Elektroinstallateur, Montage-Elektriker & mehr",
     template: "%s | elektrojob.ch",
   },
   description:
-    "Aktuelle Elektrojobs in der Schweiz! Finde offene Stellen als Elektroinstallateur (Vollzeit/Teilzeit Pensum), Montage-Elektriker u.v.m. Jetzt bewerben!",
+    "Finde aktuelle Elektro Jobs in der Schweiz. Stellen für Elektroinstallateur EFZ, Montage-Elektriker, Servicetechniker & mehr. Jetzt Lebenslauf einreichen.",
   keywords: [
     "Elektrojobs",
     "Elektrojobs Schweiz",
@@ -44,9 +42,9 @@ export const metadata: Metadata = {
     "Stellen Elektrobranche Schweiz",
   ],
   openGraph: {
-    title: "Elektrojobs Schweiz — Offene Stellen für Elektroinstallateur & Co.",
+    title: "Elektro Jobs Schweiz 2026 | Elektroinstallateur, Montage-Elektriker & mehr",
     description:
-      "Aktuelle Elektrojobs in der Schweiz! Finde offene Stellen als Elektroinstallateur (Vollzeit/Teilzeit Pensum), Montage-Elektriker u.v.m. Jetzt bewerben!",
+      "Finde aktuelle Elektro Jobs in der Schweiz. Stellen für Elektroinstallateur EFZ, Montage-Elektriker, Servicetechniker & mehr. Jetzt Lebenslauf einreichen.",
     type: "website",
     url: "/",
     siteName: "elektrojob.ch",
@@ -54,9 +52,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Elektrojobs Schweiz | Offene Stellen für Elektroinstallateur & Co.",
+    title: "Elektro Jobs Schweiz 2026 | Elektroinstallateur, Montage-Elektriker & mehr",
     description:
-      "Aktuelle Elektrojobs in der Schweiz! Finde offene Stellen als Elektroinstallateur (Vollzeit/Teilzeit Pensum), Montage-Elektriker u.v.m. Jetzt bewerben!",
+      "Finde aktuelle Elektro Jobs in der Schweiz. Stellen für Elektroinstallateur EFZ, Montage-Elektriker, Servicetechniker & mehr. Jetzt Lebenslauf einreichen.",
   },
   alternates: {
     canonical: "/",

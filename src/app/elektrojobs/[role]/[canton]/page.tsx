@@ -18,6 +18,10 @@ import {
 import { searchJobListings } from "@/lib/job-catalog";
 import type { JobListing } from "@/lib/job-types";
 import { estimateSalary, formatSalaryRange } from "@/lib/salary-estimates";
+import { buildJobPostingSchema } from "@/lib/job-schema";
+
+export const revalidate = 3600;
+
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://elektrojob.ch";
 
 interface LandingPageProps {
@@ -158,6 +162,9 @@ export default async function LandingRolePage({ params }: LandingPageProps) {
       <JsonLd data={buildBreadcrumbSchema(config)} />
       <JsonLd data={buildItemListSchema(result.jobs, config)} />
       {faqSchema && <JsonLd data={faqSchema} />}
+      {result.jobs.slice(0, 20).map((job) => (
+        <JsonLd key={`jp-${job.source}-${job.id}`} data={buildJobPostingSchema(job)} />
+      ))}
 
       {/* Header */}
       <header className="border-b header-blur sticky top-0 z-30">

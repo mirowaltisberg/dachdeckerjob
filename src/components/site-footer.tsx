@@ -111,13 +111,18 @@ export function SiteFooter() {
               </h3>
               <ul className="space-y-1.5">
                 <li>
-                  <Link href="/#" className="text-sm hover:text-white transition-colors duration-150">
+                  <Link href="/arbeitgeber/preise" className="text-sm hover:text-white transition-colors duration-150">
                     Stelle ausschreiben
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#" className="text-sm hover:text-white transition-colors duration-150">
+                  <Link href="/arbeitgeber/preise" className="text-sm hover:text-white transition-colors duration-150">
                     Preise & Pakete
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/kontakt" className="text-sm hover:text-white transition-colors duration-150">
+                    Kontakt
                   </Link>
                 </li>
               </ul>

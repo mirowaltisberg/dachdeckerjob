@@ -269,12 +269,14 @@ function buildLandingConfig(roleKey: string, cantonKey: string): LandingPageConf
     throw new Error(`Invalid role "${roleKey}" or canton "${cantonKey}"`);
   }
 
+  const relatedRolesList = role.related.join(", ");
+
   return {
     role: roleKey,
     canton: cantonKey,
     title: `${role.label} Jobs in ${canton.name}`,
     description: `Aktuelle ${role.label} Stellen im Kanton ${canton.name}. ${role.roleDescription.split(".")[0]}. Jetzt bewerben auf elektrojob.ch.`,
-    intro: `${role.roleDescription} ${canton.context} Finde aktuelle ${role.label} Jobs in ${canton.name} auf elektrojob.ch und bewirb dich direkt.`,
+    intro: `Als ${role.label} in ${canton.name} findest du auf elektrojob.ch alle aktuellen Stellenangebote in deiner Region. ${role.roleDescription} ${canton.context} Die Nachfrage nach qualifizierten ${role.label}-Fachkräften im Kanton ${canton.name} ist hoch — Arbeitgeber suchen gezielt nach Kandidaten mit ${role.requirements.split(",")[0].toLowerCase()}. Das durchschnittliche Jahresgehalt für ${role.label} in der Schweiz liegt bei ${role.salaryRange}. Verwandte Berufe wie ${relatedRolesList} bieten zusätzliche Karrieremöglichkeiten in der Elektrobranche. ${role.career} Nutze unsere smarte Filterung nach Pensum, Umkreis und Anstellungsart, um die passende Stelle zu finden. Bewirb dich direkt online und lade deinen Lebenslauf hoch.`,
     faqs: [
       {
         question: `Was verdient ein ${role.label} im Kanton ${canton.name}?`,
