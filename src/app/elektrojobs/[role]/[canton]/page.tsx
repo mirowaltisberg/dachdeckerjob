@@ -166,8 +166,8 @@ export default async function LandingRolePage({ params }: LandingPageProps) {
             <img
               src="/logo.svg"
               alt="elektrojob.ch — Elektrojobs in der Schweiz"
-              width={200}
-              height={32}
+              width={228}
+              height={48}
               className="h-7 sm:h-8 w-auto"
             />
           </Link>

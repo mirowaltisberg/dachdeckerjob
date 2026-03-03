@@ -38,8 +38,8 @@ export function SiteFooter() {
             <img
               src="/logo.svg"
               alt="elektrojob.ch — Jobbörse für Elektro-Fachkräfte in der Schweiz"
-              width={200}
-              height={32}
+              width={228}
+              height={48}
               className="h-8 w-auto brightness-0 invert mb-4"
             />
             <p className="text-sm leading-relaxed">
