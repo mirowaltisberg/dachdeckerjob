@@ -333,6 +333,9 @@ async function buildCuratedScrapedListings(): Promise<JobListing[]> {
     }
 
     const listing = toScrapedListing(job, relevanceScore);
+    if (!listing.description || !listing.description.trim()) {
+      continue;
+    }
     const signature = dedupeSignature(listing);
     const existing = deduped.get(signature);
 
