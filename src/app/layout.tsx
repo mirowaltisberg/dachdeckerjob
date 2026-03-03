@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
 import { JsonLd } from "@/components/json-ld";
@@ -164,6 +165,7 @@ export default function RootLayout({
         <JsonLd data={localBusinessSchema} />
         <HapticProvider>{children}</HapticProvider>
         <Analytics />
+        <SpeedInsights />
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "G-0000000000"} />
       </body>
     </html>
