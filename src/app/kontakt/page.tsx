@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -15,12 +16,13 @@ export default function KontaktPage() {
       <header className="border-b header-blur sticky top-0 z-30">
         <div className="container mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center">
           <Link href="/" className="flex items-center shrink-0">
-            <img
+            <Image
               src="/logo.png"
               alt="elektrojob.ch"
               width={142}
               height={29}
               className="h-7 sm:h-8 w-auto"
+              priority
             />
           </Link>
         </div>

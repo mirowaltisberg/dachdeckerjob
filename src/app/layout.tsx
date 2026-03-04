@@ -20,7 +20,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://elektrojob.ch";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Elektro Jobs Schweiz 2026 | Elektroinstallateur, Montage-Elektriker & mehr",
+    default: "Elektro Jobs Schweiz 2026 | Offene Stellen finden",
     template: "%s | elektrojob.ch",
   },
   description:
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     "Stellen Elektrobranche Schweiz",
   ],
   openGraph: {
-    title: "Elektro Jobs Schweiz 2026 | Elektroinstallateur, Montage-Elektriker & mehr",
+    title: "Elektro Jobs Schweiz 2026 | Offene Stellen finden",
     description:
       "Finde aktuelle Elektro Jobs in der Schweiz. Stellen für Elektroinstallateur EFZ, Montage-Elektriker, Servicetechniker & mehr. Jetzt Lebenslauf einreichen.",
     type: "website",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Elektro Jobs Schweiz 2026 | Elektroinstallateur, Montage-Elektriker & mehr",
+    title: "Elektro Jobs Schweiz 2026 | Offene Stellen finden",
     description:
       "Finde aktuelle Elektro Jobs in der Schweiz. Stellen für Elektroinstallateur EFZ, Montage-Elektriker, Servicetechniker & mehr. Jetzt Lebenslauf einreichen.",
   },
@@ -94,6 +94,13 @@ const organizationSchema = {
     availableLanguage: "German",
     url: `${SITE_URL}/`,
   },
+  sameAs: [
+    "https://www.youtube.com/@elektrojob",
+    "https://www.facebook.com/elektrojob",
+    "https://www.instagram.com/elektrojob",
+    "https://www.linkedin.com/company/elektrojob",
+    "https://twitter.com/elektrojob",
+  ],
 };
 
 // SEO-DECISION: WebSite schema with SearchAction enables the Google sitelinks search box
@@ -164,10 +171,19 @@ export default function RootLayout({
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', process.env.NEXT_PUBLIC_FB_PIXEL_ID || '00000000000');
+            fbq('init', '${process.env.NEXT_PUBLIC_FB_PIXEL_ID || "0000000000000000"}');
             fbq('track', 'PageView');
           `}
         </Script>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_FB_PIXEL_ID || "0000000000000000"}&ev=PageView&noscript=1`}
+            alt=""
+          />
+        </noscript>
       </body>
     </html>
   );

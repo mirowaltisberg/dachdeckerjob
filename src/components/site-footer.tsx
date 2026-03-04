@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { TOP_LANDING_PAGES, getLandingPath, toRoleSlug, toCantonSlug } from "@/lib/landing-pages";
 
 const FOOTER_ROLES = [
@@ -35,7 +36,7 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           {/* Brand */}
           <div>
-            <img
+            <Image
               src="/logo.png"
               alt="elektrojob.ch — Jobbörse für Elektro-Fachkräfte in der Schweiz"
               width={142}

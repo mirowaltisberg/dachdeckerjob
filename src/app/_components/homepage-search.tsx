@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useHaptic } from "@/hooks/use-haptic";
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import {
   Building2,
@@ -679,7 +680,7 @@ export function HomepageSearch({ initialData }: HomepageSearchProps) {
       <header className="border-b header-blur sticky top-0 z-30 animate-header">
         <div className="container mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
           <Link href="/" className="flex items-center shrink-0" onClick={resetToHome}>
-            <img src="/logo.png" alt="elektrojob.ch — Elektrojobs in der Schweiz" width={142} height={29} className="h-7 sm:h-8 w-auto" />
+            <Image src="/logo.png" alt="elektrojob.ch — Elektrojobs in der Schweiz" width={142} height={29} className="h-7 sm:h-8 w-auto" priority />
           </Link>
           <nav className="flex items-center gap-1 sm:gap-2 shrink-0">
             <HeaderDropdownMenu
@@ -915,8 +916,7 @@ export function HomepageSearch({ initialData }: HomepageSearchProps) {
                 {Array.from({ length: 5 }).map((_, i) => (
                   <div
                     key={i}
-                    className="skeleton-card h-32 sm:h-36 border border-slate-100"
-                    style={{ animationDelay: `${i * 0.1}s` }}
+                    className={`skeleton-card h-32 sm:h-36 border border-slate-100 skeleton-stagger-${i}`}
                   />
                 ))}
               </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CalendarDays, Clock, MapPin, Wallet } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -170,12 +171,13 @@ export default async function LandingRolePage({ params }: LandingPageProps) {
       <header className="border-b header-blur sticky top-0 z-30">
         <div className="container mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
           <Link href="/" className="flex items-center shrink-0">
-            <img
+            <Image
               src="/logo.png"
               alt="elektrojob.ch — Elektrojobs in der Schweiz"
               width={142}
               height={29}
               className="h-7 sm:h-8 w-auto"
+              priority
             />
           </Link>
           <nav className="shrink-0">
