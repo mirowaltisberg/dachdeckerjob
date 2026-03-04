@@ -1,6 +1,6 @@
 import type { JobListing } from "@/lib/job-types";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://elektrojob.ch";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://dachdeckerjob.ch";
 
 /**
  * Build a Google-compatible JobPosting structured data object.

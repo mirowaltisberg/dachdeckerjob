@@ -13,7 +13,7 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#fba918",
+          background: "#B06030",
           borderRadius: "7px",
         }}
       >
@@ -24,9 +24,10 @@ export default function Icon() {
           height="22"
         >
           <path
-            d="M23.75 3L13.75 23h8L17.75 45 34.25 21h-8.5l5-18z"
+            d="M4 32L24 12l20 20H4z"
             fill="white"
           />
+          <rect x="30" y="14" width="4" height="10" rx="0.5" fill="rgba(255,255,255,0.7)"/>
         </svg>
       </div>
     ),

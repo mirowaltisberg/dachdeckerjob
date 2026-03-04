@@ -1,5 +1,5 @@
 /**
- * Approximate annual CHF salary ranges for Swiss electrical trade roles.
+ * Approximate annual CHF salary ranges for Swiss roofing trade roles.
  * Used when no salary data is available from the job source.
  */
 
@@ -15,83 +15,59 @@ export interface SalaryRange {
 const ROLE_SALARY_MAP: { patterns: string[]; range: SalaryRange }[] = [
   // Leadership / senior roles
   {
-    patterns: ["bauleiter"],
-    range: { min: 90_000, max: 120_000 },
-  },
-  {
-    patterns: ["projektleiter"],
+    patterns: ["bauführer dach", "bauführer"],
     range: { min: 85_000, max: 110_000 },
   },
-  // Planning / design
   {
-    patterns: ["elektroplaner", "planer elektro"],
+    patterns: ["dachdeckerpolier", "polier dach"],
     range: { min: 80_000, max: 100_000 },
   },
-  // Core trades
+  // Specialist roles
   {
-    patterns: ["elektroinstallateur"],
-    range: { min: 75_000, max: 95_000 },
-  },
-  {
-    patterns: ["automatiker", "automatikmonteur"],
-    range: { min: 75_000, max: 95_000 },
-  },
-  {
-    patterns: ["servicetechniker", "kundendiensttechniker"],
-    range: { min: 75_000, max: 90_000 },
-  },
-  {
-    patterns: ["betriebselektriker"],
-    range: { min: 75_000, max: 90_000 },
-  },
-  {
-    patterns: ["montage-elektriker", "montageelektriker"],
-    range: { min: 75_000, max: 80_000 },
-  },
-  {
-    patterns: ["netzelektriker"],
-    range: { min: 70_000, max: 85_000 },
-  },
-  {
-    patterns: ["elektromonteur"],
-    range: { min: 70_000, max: 85_000 },
-  },
-  {
-    patterns: ["schaltanlagen", "schaltschrank"],
-    range: { min: 72_000, max: 88_000 },
-  },
-  {
-    patterns: ["photovoltaik", "solartechnik", "solar"],
-    range: { min: 70_000, max: 90_000 },
-  },
-  {
-    patterns: ["gebäudetechnik", "gebaeudetechnik", "haustechnik", "gebäudeautomation"],
-    range: { min: 75_000, max: 95_000 },
-  },
-  {
-    patterns: ["inbetriebnahme"],
-    range: { min: 78_000, max: 98_000 },
-  },
-  {
-    patterns: ["spengler"],
-    range: { min: 65_000, max: 80_000 },
-  },
-  // Broad fallbacks (keep last)
-  {
-    patterns: ["elektriker", "elektro"],
-    range: { min: 70_000, max: 90_000 },
-  },
-  {
-    patterns: ["techniker"],
-    range: { min: 72_000, max: 92_000 },
-  },
-  {
-    patterns: ["monteur"],
+    patterns: ["flachdach"],
     range: { min: 68_000, max: 85_000 },
   },
   {
-    patterns: ["heizung", "lüftung", "klima", "sanitär", "hlk"],
-    range: { min: 70_000, max: 90_000 },
+    patterns: ["steildach"],
+    range: { min: 68_000, max: 85_000 },
+  },
+  {
+    patterns: ["zimmermann", "holzbau"],
+    range: { min: 68_000, max: 85_000 },
+  },
+  // Core trades
+  {
+    patterns: ["dachdecker"],
+    range: { min: 65_000, max: 80_000 },
+  },
+  {
+    patterns: ["spengler", "bauspengler"],
+    range: { min: 65_000, max: 80_000 },
+  },
+  {
+    patterns: ["dachsanier"],
+    range: { min: 65_000, max: 82_000 },
+  },
+  {
+    patterns: ["abdichter"],
+    range: { min: 65_000, max: 78_000 },
+  },
+  {
+    patterns: ["fassadenbauer", "fassade"],
+    range: { min: 62_000, max: 78_000 },
+  },
+  {
+    patterns: ["gerüstbauer", "gerüst"],
+    range: { min: 60_000, max: 75_000 },
+  },
+  {
+    patterns: ["gebäudehülle"],
+    range: { min: 65_000, max: 85_000 },
+  },
+  // Broad fallbacks (keep last)
+  {
+    patterns: ["monteur", "dach"],
+    range: { min: 62_000, max: 78_000 },
   },
 ];
 
@@ -114,7 +90,7 @@ export function estimateSalary(title: string): SalaryRange | null {
 }
 
 /**
- * Format a salary range as a Swiss-locale string, e.g. "75'000 – 95'000".
+ * Format a salary range as a Swiss-locale string, e.g. "65'000 – 80'000".
  */
 export function formatSalaryRange(range: SalaryRange): string {
   const fmt = (n: number) =>

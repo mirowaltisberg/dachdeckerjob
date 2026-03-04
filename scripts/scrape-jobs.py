@@ -1,5 +1,5 @@
 """
-Scrape Swiss electrical jobs using python-jobspy and output JSON.
+Scrape Swiss roofing (Dachdecker) jobs using python-jobspy and output JSON.
 Usage: python scrape-jobs.py [--query "search term"] [--location "city"] [--results 50]
 Output is written to ../src/data/scraped-jobs.json
 """
@@ -73,24 +73,14 @@ def parse_location(raw_location: str) -> str:
 
 def extract_workload(description: str) -> str | None:
     """Try to extract workload percentage from the description text."""
-    patterns = [
-        r'(\d{2,3})\s*%',                    # "100%", "80 %"
-        r'(\d{2,3})\s*-\s*(\d{2,3})\s*%',    # "80-100%"
-        r'Pensum[:\s]*(\d{2,3})\s*%',         # "Pensum: 100%"
-        r'Pensum[:\s]*(\d{2,3})\s*-\s*(\d{2,3})\s*%',  # "Pensum: 80-100%"
-    ]
-
-    # Check first 500 chars for workload info
     header = description[:500]
 
-    # Range pattern first
     m = re.search(r'(\d{2,3})\s*-\s*(\d{2,3})\s*%', header)
     if m:
         lo, hi = int(m.group(1)), int(m.group(2))
         if 20 <= lo <= 100 and 20 <= hi <= 100:
             return f"{lo}-{hi}%"
 
-    # Single percentage (look for "Pensum" context or standalone)
     m = re.search(r'(?:Pensum|Arbeitspensum|Beschäftigungsgrad)[:\s]*(\d{2,3})\s*%', header, re.IGNORECASE)
     if m:
         val = int(m.group(1))
@@ -109,7 +99,6 @@ def extract_sections(description: str) -> dict:
     if not description:
         return {"responsibilities": responsibilities, "requirements": requirements, "benefits": benefits}
 
-    # Common section header patterns in German job postings
     resp_patterns = [
         r'(?:Ihre |Deine )?Aufgaben',
         r'(?:Ihre |Deine )?Tätigkeiten',
@@ -133,7 +122,6 @@ def extract_sections(description: str) -> dict:
     ]
 
     def find_section(text: str, patterns: list[str]) -> tuple[int, int] | None:
-        """Find the start position and end-of-header of a section."""
         for pat in patterns:
             m = re.search(rf'\*?\*?{pat}\*?\*?[:\s]*\n', text, re.IGNORECASE)
             if m:
@@ -141,25 +129,19 @@ def extract_sections(description: str) -> dict:
         return None
 
     def extract_bullets(text: str) -> list[str]:
-        """Extract bullet points or line items from a text block."""
         items = []
         for line in text.split('\n'):
             line = line.strip()
-            # Skip separator lines (---, ***, ===, etc.)
             if re.match(r'^[-*=_]{3,}\s*$', line):
                 continue
-            # Remove markdown bold markers
             line = re.sub(r'\*\*', '', line)
-            # Match bullet points: -, *, •, or numbered
             line = re.sub(r'^[-*•►▸◦‣]\s*', '', line)
             line = re.sub(r'^\d+[.)]\s*', '', line)
             line = line.strip()
-            # Skip short lines, pure punctuation, or section headers
             if line and len(line) > 15 and not re.match(r'^[-=_*#]+$', line):
                 items.append(line)
         return items
 
-    # Find all section positions
     sections = []
     resp_pos = find_section(description, resp_patterns)
     if resp_pos:
@@ -171,17 +153,15 @@ def extract_sections(description: str) -> dict:
     if ben_pos:
         sections.append(('ben', ben_pos[0], ben_pos[1]))
 
-    # Sort by position
     sections.sort(key=lambda s: s[1])
 
-    # Extract text for each section (from header end to next section start)
     for i, (stype, start, header_end) in enumerate(sections):
         if i + 1 < len(sections):
             section_text = description[header_end:sections[i + 1][1]]
         else:
             section_text = description[header_end:header_end + 2000]
 
-        bullets = extract_bullets(section_text)[:10]  # Max 10 items per section
+        bullets = extract_bullets(section_text)[:10]
 
         if stype == 'resp':
             responsibilities = bullets
@@ -197,82 +177,65 @@ def clean_description(description: str) -> str:
     """Clean up the description text, removing excessive markdown."""
     if not description:
         return ""
-    # Remove excessive asterisks but keep basic structure
     text = re.sub(r'\*{3,}', '**', description)
-    # Remove excessive newlines
     text = re.sub(r'\n{3,}', '\n\n', text)
     return text.strip()
 
 
 # ── Relevance filter ──────────────────────────────────────────────────────────
 
-# Title must contain at least one of these (case-insensitive) to be kept
 RELEVANT_TITLE_KEYWORDS = [
-    # Core electrical trades
-    "elektr", "electric", "èlectr", "elettric",
-    "installat", "monteur", "montage",
-    # Specializations
-    "automat", "telemat", "telekom",
-    "starkstrom", "schwachstrom", "niederspannung", "hochspannung", "mittelspannung",
-    "schaltanlag", "steuerung", "sps ", "plc ",
-    # Energy / power
-    "energie", "energy", "strom", "power supply",
-    "solar", "photovoltaik", "blitzschutz",
-    # Building services
-    "gebäudetechnik", "gebaudetechnik", "haustechnik",
-    "heizung", "lüftung", "klima", "hvac", "sanitär", "kälte",
-    "hlk", "hkls",
+    # Core roofing trades
+    "dachdeck", "dach", "roof",
+    "abdicht", "flachdach", "steildach",
+    "spengler", "bauspengler", "blechnerei",
+    "fassadenbau", "fassade",
+    # Materials & specializations
+    "ziegel", "schiefer", "bitumen",
+    "dachsanier", "dachsanierung",
+    "gebäudehülle", "gebaeudehuelle",
+    "isolier", "wärmedämm", "waermedaemm",
+    # Related trades
+    "zimmermann", "zimmer", "holzbau",
+    "gerüstbau", "geruestbau", "gerüstmonteur",
     # Roles
-    "servicetechni", "wartung", "instandhalt",
-    "bauleiter", "polier",
-    "kontrolleur", "prüf", "mess",
-    "netz", "kabel", "trafo", "transform",
-    "kundendiensttechni", "field service",
-    "techniker", "fachmann", "fachfrau", "fachperson",
-    "projektleiter",
-    # Broader but still relevant
-    "elektronik", "mechatronik",
-    "brandschutz", "brandmelde", "sicherheitstechnik",
-    "licht", "beleuchtung",
-    "werkstatt", "betriebselektri",
-    "anlagenbau", "anlagenmech",
-    "schlosser", "spengler",
-    "emr ", "emr-",
+    "polier", "bauführer dach", "baufuehrer dach",
+    "monteur", "fachmann", "fachfrau", "fachperson",
+    "dachrinne", "entwässerung",
+    "blitzschutz", "schneefang",
+    # Broader
+    "bedachung", "eindeckung",
+    "kupfer", "zink", "blech",
+    "flach", "steil",
 ]
 
-# Titles containing any of these are always rejected
 REJECT_TITLE_KEYWORDS = [
     "software", "developer", "frontend", "backend", "fullstack", "full-stack",
     "devops", "data scientist", "data engineer", "machine learning",
-    "research scientist", "research engineer", "research associate", "research intern",
+    "research scientist", "research engineer",
     "ux ", "ui ", "product manager", "product owner", "scrum",
     "marketing", "sales", "vertrieb", "verkauf",
     "buchhalt", "finanz", "accounting", "controller",
     "jurist", "rechts", "legal",
     "koch", "küche", "gastro", "pflege", "arzt", "ärzt",
-    "lehrer", "dozent", "professor", "schulsozialarbeit",
+    "lehrer", "dozent", "professor",
     "nvidia", "intern -", "internship", "new grad",
-    "chip design", "asic", "fpga",
-    "automobilverkäufer", "automobilmechatroniker",
     "cloud ", "kubernetes", "azure", "aws ",
     "abacus", "sap ", "erp ",
-    "marktmitarbeiter", "non food",
+    "elektroinstallat", "elektroplan",
+    "automobilverkäufer", "automobilmechatroniker",
     "computational", "validation engineer",
     "application manager", "reliability engineer",
 ]
 
-# French / Italian title markers → reject (site is German-language)
 NON_GERMAN_MARKERS = [
     "ingénieur", "technicien", "alternance", "responsable", "chargé",
-    "électricien", "confirmé", "h/f", " cdi ", " cdd ",
-    "elettricista", "disegnatore", "praticante", "tecnico ",
+    "couvreur", "confirmé", "h/f", " cdi ", " cdd ",
+    "copritetto", "disegnatore", "praticante", "tecnico ",
 ]
 
-# Swiss location whitelist — location must contain one of these to be kept
 SWISS_LOCATION_MARKERS = [
-    # Country
     "switzerland", "schweiz", "suisse", "svizzera",
-    # Cantons (German + French + Italian names)
     "zurich", "zürich", "berne", "bern", "lucerne", "luzern",
     "uri", "schwyz", "obwalden", "nidwalden", "glarus", "zug",
     "fribourg", "freiburg", "solothurn", "basel", "schaffhausen",
@@ -280,7 +243,6 @@ SWISS_LOCATION_MARKERS = [
     "aargau", "thurgau", "ticino", "tessin", "vaud", "waadt",
     "valais", "wallis", "neuchâtel", "neuenburg", "geneva", "genève", "genf",
     "jura",
-    # Major cities not already covered by canton names
     "winterthur", "biel", "thun", "köniz", "chur", "uster",
     "sion", "lugano", "yverdon", "rapperswil", "dietikon",
     "olten", "aarau", "baden", "wil", "frauenfeld", "kreuzlingen",
@@ -299,8 +261,6 @@ SWISS_LOCATION_MARKERS = [
     "visp", "brig", "sierre", "martigny",
 ]
 
-
-# Known non-Swiss regions that collide with Swiss city names
 FALSE_POSITIVE_LOCATIONS = [
     "baden-württemberg", "baden württemberg",
     "niedersachsen", "lower saxony",
@@ -321,35 +281,29 @@ def is_swiss_location(location: str) -> bool:
     """Return True if the location looks Swiss."""
     loc = location.lower()
     if not loc or loc == "schweiz":
-        return True  # generic = keep (benefit of the doubt)
-    # Reject known non-Swiss regions first (e.g. "Baden, Baden-Württemberg")
+        return True
     if any(fp in loc for fp in FALSE_POSITIVE_LOCATIONS):
         return False
     return any(marker in loc for marker in SWISS_LOCATION_MARKERS)
 
 
 def is_relevant_job(job: dict) -> bool:
-    """Return True if the job belongs on a Swiss electrical jobs site."""
+    """Return True if the job belongs on a Swiss roofing jobs site."""
     title = job.get("title", "").lower()
     location = job.get("location", "").lower()
 
-    # 1) Must be in Switzerland
     if not is_swiss_location(location):
         return False
 
-    # 2) Reject non-German language titles
     if any(marker in title for marker in NON_GERMAN_MARKERS):
         return False
 
-    # 3) Reject clearly irrelevant titles
     if any(kw in title for kw in REJECT_TITLE_KEYWORDS):
         return False
 
-    # 4) Must have at least one relevant keyword in title
     if any(kw in title for kw in RELEVANT_TITLE_KEYWORDS):
         return True
 
-    # 5) If title doesn't match, reject
     return False
 
 
@@ -357,21 +311,21 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "src", "data")
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "scraped-jobs.json")
 
 DEFAULT_SEARCH_TERMS = [
-    "Elektroinstallateur",
-    "Elektriker",
-    "Montage-Elektriker",
-    "Elektro",
-    "Automatiker",
-    "Elektroplaner",
-    "Elektromonteur",
-    "Servicetechniker Elektro",
-    "Elektrotechniker",
-    "Netzelektriker",
-    "Elektro Projektleiter",
-    "Telematiker",
-    "Elektrokontrolleur",
-    "Gebäudetechnik Elektro",
-    "Starkstrom",
+    "Dachdecker",
+    "Spengler",
+    "Abdichter",
+    "Dachdeckerpolier",
+    "Bauführer Dach",
+    "Flachdach",
+    "Steildach",
+    "Fassadenbauer",
+    "Dachsanierung",
+    "Bauspengler",
+    "Zimmermann Dach",
+    "Gerüstbauer",
+    "Dachdeckermeister",
+    "Gebäudehülle",
+    "Bedachung",
 ]
 
 DEFAULT_LOCATIONS = [
@@ -438,7 +392,7 @@ def scrape_swiss_jobs(query: str, location: str, results_wanted: int = 50) -> li
             search_term=query,
             location=location,
             results_wanted=results_wanted,
-            hours_old=720,  # last 30 days
+            hours_old=720,
             country_indeed="Switzerland",
             verbose=0,
         )
@@ -464,15 +418,12 @@ def normalize_job(raw: dict, idx: int) -> dict | None:
     if not title or not job_url:
         return None
 
-    # Location — Indeed returns "City, Canton, CH" in the `location` field
     raw_location = safe_str(raw.get("location"))
     location_str = parse_location(raw_location)
 
-    # Description
     description = clean_description(safe_str(raw.get("description")))
     short_desc = description[:300].rsplit(" ", 1)[0] + "..." if len(description) > 300 else description
 
-    # Job type / workload — Indeed can return "parttime, fulltime"
     job_type = safe_str(raw.get("job_type"))
     type_map = {
         "fulltime": "Vollzeit",
@@ -480,7 +431,6 @@ def normalize_job(raw: dict, idx: int) -> dict | None:
         "contract": "Temporär",
         "internship": "Praktikum",
     }
-    # Handle comma-separated types: pick the first recognized one
     job_type_display = "Vollzeit"
     for t in job_type.lower().split(","):
         t = t.strip()
@@ -488,15 +438,12 @@ def normalize_job(raw: dict, idx: int) -> dict | None:
             job_type_display = type_map[t]
             break
 
-    # Try to extract workload from description
     workload = extract_workload(description)
     if not workload:
         workload = "100%" if job_type_display == "Vollzeit" else "60-100%"
 
-    # Extract structured sections from description
     sections = extract_sections(description)
 
-    # Date
     date_posted = raw.get("date_posted")
     date_str = ""
     if date_posted:
@@ -511,13 +458,11 @@ def normalize_job(raw: dict, idx: int) -> dict | None:
     if not date_str:
         date_str = datetime.now().strftime("%Y-%m-%d")
 
-    # Check if recent (within 3 days)
     try:
         days_old = (datetime.now() - datetime.strptime(date_str, "%Y-%m-%d")).days
     except Exception:
         days_old = 99
 
-    # Salary
     salary_min = safe_num(raw.get("min_amount"))
     salary_max = safe_num(raw.get("max_amount"))
     salary_currency = safe_str(raw.get("currency")) or "CHF"
@@ -527,11 +472,9 @@ def normalize_job(raw: dict, idx: int) -> dict | None:
     elif salary_min:
         salary_str = f"ab {salary_currency} {int(salary_min):,}"
 
-    # is_remote can also be NaN
     is_remote_val = raw.get("is_remote")
     is_remote = bool(is_remote_val) if is_remote_val is not None and not (isinstance(is_remote_val, float) and math.isnan(is_remote_val)) else False
 
-    # Stable ID from job URL so dedup works across runs
     url_hash = hashlib.md5(job_url.encode()).hexdigest()[:12]
     stable_id = f"scraped-{url_hash}"
 
@@ -611,7 +554,6 @@ def sync_to_supabase(normalized: list[dict], scraped_at: str):
             print(f"    ⚠ Supabase upsert error (batch {i}): {e}")
             return
 
-    # Update scrape metadata
     try:
         sb.table("scrape_metadata").update({
             "scraped_at": scraped_at,
@@ -658,7 +600,6 @@ def save_results(all_raw: list[dict], label: str = ""):
     if label:
         print(f"    💾 Saved {len(normalized)} jobs ({filtered_out} filtered out) {label}")
 
-    # Sync to Supabase
     sync_to_supabase(normalized, scraped_at)
 
 
@@ -703,10 +644,8 @@ def load_existing_jobs() -> tuple[list[dict], set[str]]:
                 url = job.get("jobUrl", "")
                 if url and url not in seen_urls:
                     seen_urls.add(url)
-                    # Regenerate stable ID from URL
                     url_hash = hashlib.md5(url.encode()).hexdigest()[:12]
                     job["id"] = f"scraped-{url_hash}"
-                    # Store as a pseudo-raw record so save_results can re-normalize
                     all_raw.append({
                         "_already_normalized": True,
                         "_job": job,
@@ -720,7 +659,7 @@ def load_existing_jobs() -> tuple[list[dict], set[str]]:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Scrape Swiss electrical jobs")
+    parser = argparse.ArgumentParser(description="Scrape Swiss roofing jobs")
     parser.add_argument("--query", type=str, help="Single search query")
     parser.add_argument("--location", type=str, help="Single location")
     parser.add_argument("--results", type=int, default=100, help="Results per query/location combo")
@@ -767,7 +706,6 @@ def main():
                 print(f"    ({dupe_count} duplicates skipped)")
             print(f"    → [{combo_count}/{total_combos}] {len(all_raw)} unique jobs\n")
 
-            # Save after every query/location combo so progress is never lost
             save_results(all_raw, f"(combo {combo_count}/{total_combos})")
 
     print(f"\nDone! Total unique raw jobs: {len(all_raw)}")

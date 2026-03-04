@@ -6,38 +6,38 @@ import { JsonLd } from "@/components/json-ld";
 // This content is always visible to search engines even though the
 // main job search is client-rendered.
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://elektrojob.ch";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://dachdeckerjob.ch";
 
 const HOMEPAGE_FAQS = [
   {
-    question: "Welche Elektrojobs gibt es auf elektrojob.ch?",
+    question: "Welche Dachdeckerjobs gibt es auf dachdeckerjob.ch?",
     answer:
-      "Auf elektrojob.ch findest du offene Stellen für Elektroinstallateur EFZ, Montage-Elektriker EFZ, Servicetechniker Elektro, Projektleiter Elektro, Automatiker EFZ, Elektroplaner, Elektromonteur, Gebäudetechniker, Photovoltaik-Spezialisten, Schaltanlagenbauer, Bauleiter Elektro und Betriebselektriker — in der ganzen Schweiz.",
+      "Auf dachdeckerjob.ch findest du offene Stellen für Dachdecker EFZ, Abdichter EFZ, Spengler EFZ, Flachdachspezialisten, Steildachspezialisten, Dachdeckerpoliere, Bauführer Dachdecker, Zimmermänner, Bauspengler, Dachsanierer, Fassadenbauer EFZ und Gerüstbauer — in der ganzen Schweiz.",
   },
   {
-    question: "Was verdient ein Elektroinstallateur in der Schweiz?",
+    question: "Was verdient ein Dachdecker EFZ in der Schweiz?",
     answer:
-      "Ein Elektroinstallateur EFZ verdient in der Schweiz durchschnittlich zwischen CHF 75'000 und CHF 95'000 pro Jahr. Das Gehalt variiert je nach Kanton, Berufserfahrung und Arbeitgeber. In Zürich und Basel liegen die Löhne tendenziell höher als in ländlicheren Regionen.",
+      "Ein Dachdecker EFZ verdient in der Schweiz durchschnittlich zwischen CHF 65'000 und CHF 80'000 pro Jahr. Das Gehalt variiert je nach Kanton, Spezialisierung und Berufserfahrung. Poliere und Bauführer Dachdecker erzielen deutlich höhere Löhne von CHF 80'000 bis CHF 110'000. In Zürich und Basel liegen die Löhne tendenziell höher als in ländlicheren Regionen.",
   },
   {
-    question: "Wie finde ich einen Job als Elektriker in der Schweiz?",
+    question: "Was ist der Unterschied zwischen Dachdecker, Abdichter und Spengler?",
     answer:
-      "Auf elektrojob.ch kannst du gezielt nach Elektrojobs in deiner Region suchen. Nutze die Filteroptionen nach Beruf, Kanton, Pensum und Umkreis. Du kannst dich direkt über die Plattform bewerben — einfach Lebenslauf hochladen und abschicken.",
+      "Der Dachdecker EFZ (3-jährige Lehre) verlegt Dachziegel, Schiefer und andere Eindeckmaterialien auf Steildächern. Der Abdichter EFZ (3-jährige Lehre) spezialisiert sich auf wasserdichte Abdichtungen, insbesondere bei Flachdächern und Tiefbauten. Der Spengler EFZ (3-jährige Lehre) arbeitet mit Metallblechen, fertigt Dachentwässerungen, Verkleidungen und Fassadenelemente. Alle drei Berufe gehören zur Gebäudehülle und sind in der Schweiz sehr gefragt.",
   },
   {
-    question: "Welche Kantone haben die meisten Elektrojobs?",
+    question: "Welche Kantone haben die meisten Dachdeckerjobs?",
     answer:
-      "Die meisten offenen Stellen für Elektro-Fachkräfte gibt es in den Kantonen Zürich, Bern, Aargau, Basel und St. Gallen. Diese Regionen haben eine hohe Dichte an Elektroinstallationsfirmen und Bauprojekten.",
+      "Die meisten offenen Stellen für Dachdecker-Fachkräfte gibt es in den Kantonen Zürich, Bern, Aargau, Basel und St. Gallen. Diese Regionen haben eine hohe Dichte an Bedachungsunternehmen und aktiven Bauprojekten. Auch in der Zentralschweiz und im Mittelland besteht konstant hohe Nachfrage.",
   },
   {
-    question: "Was ist der Unterschied zwischen Elektroinstallateur und Montage-Elektriker?",
+    question: "Wie finde ich einen Job als Dachdecker in der Schweiz?",
     answer:
-      "Der Elektroinstallateur EFZ (4-jährige Lehre) plant und installiert elektrische Anlagen eigenständig und darf Sicherheitskontrollen durchführen. Der Montage-Elektriker EFZ (3-jährige Lehre) führt hauptsächlich Montagearbeiten unter Anleitung aus. Beide Berufe sind in der Schweiz sehr gefragt.",
+      "Auf dachdeckerjob.ch kannst du gezielt nach Dachdeckerjobs in deiner Region suchen. Nutze die Filteroptionen nach Beruf, Kanton, Pensum und Umkreis. Du kannst dich direkt über die Plattform bewerben — einfach Lebenslauf hochladen und abschicken. Die Plattform ist auf Berufe rund um die Gebäudehülle spezialisiert.",
   },
   {
-    question: "Gibt es auf elektrojob.ch auch Teilzeitstellen?",
+    question: "Gibt es auf dachdeckerjob.ch auch Teilzeitstellen für Dachdecker?",
     answer:
-      "Ja, auf elektrojob.ch findest du sowohl Vollzeit- als auch Teilzeitstellen. Nutze den Pensum-Filter, um Stellen mit 60–80% oder 80–100% Arbeitspensum zu finden.",
+      "Ja, auf dachdeckerjob.ch findest du sowohl Vollzeit- als auch Teilzeitstellen. Nutze den Pensum-Filter, um Stellen mit 60–80% oder 80–100% Arbeitspensum zu finden. Teilzeitstellen sind in der Dachdeckerbranche seltener als in anderen Berufen, aber besonders für erfahrene Fachkräfte und Poliere vorhanden.",
   },
 ];
 
@@ -55,18 +55,18 @@ const faqPageSchema = {
 };
 
 const SALARY_TABLE = [
-  { role: "Bauleiter Elektro", range: "CHF 90'000 – 120'000" },
-  { role: "Projektleiter Elektro", range: "CHF 85'000 – 110'000" },
-  { role: "Elektroplaner", range: "CHF 80'000 – 100'000" },
-  { role: "Elektroinstallateur EFZ", range: "CHF 75'000 – 95'000" },
-  { role: "Automatiker EFZ", range: "CHF 75'000 – 95'000" },
-  { role: "Gebäudetechniker", range: "CHF 75'000 – 95'000" },
-  { role: "Servicetechniker Elektro", range: "CHF 75'000 – 90'000" },
-  { role: "Betriebselektriker", range: "CHF 75'000 – 90'000" },
-  { role: "Montage-Elektriker EFZ", range: "CHF 75'000 – 80'000" },
-  { role: "Photovoltaik-Spezialist", range: "CHF 70'000 – 90'000" },
-  { role: "Elektromonteur", range: "CHF 70'000 – 85'000" },
-  { role: "Schaltanlagenbauer", range: "CHF 72'000 – 88'000" },
+  { role: "Bauführer Dachdecker", range: "CHF 85'000 – 110'000" },
+  { role: "Dachdeckerpolier", range: "CHF 80'000 – 100'000" },
+  { role: "Flachdachspezialist", range: "CHF 68'000 – 85'000" },
+  { role: "Steildachspezialist", range: "CHF 68'000 – 85'000" },
+  { role: "Zimmermann", range: "CHF 68'000 – 85'000" },
+  { role: "Dachdecker EFZ", range: "CHF 65'000 – 80'000" },
+  { role: "Spengler EFZ", range: "CHF 65'000 – 80'000" },
+  { role: "Dachsanierer", range: "CHF 65'000 – 82'000" },
+  { role: "Abdichter EFZ", range: "CHF 65'000 – 78'000" },
+  { role: "Bauspengler", range: "CHF 65'000 – 80'000" },
+  { role: "Fassadenbauer EFZ", range: "CHF 62'000 – 78'000" },
+  { role: "Gerüstbauer", range: "CHF 60'000 – 75'000" },
 ];
 
 /**
@@ -76,21 +76,21 @@ const SALARY_TABLE = [
  */
 export function HomepageSeoContent() {
   return (
-    <section className="bg-white border-t" aria-label="Informationen für Elektro-Fachkräfte">
+    <section className="bg-white border-t" aria-label="Informationen für Dachdecker-Fachkräfte">
       <JsonLd data={faqPageSchema} />
 
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 max-w-5xl">
         {/* SEO intro paragraph — AI-citeable, entity-rich */}
         <div className="mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
-            Elektrojobs in der Schweiz finden
+            Dachdeckerjobs in der Schweiz finden
           </h2>
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-4">
-            Auf elektrojob.ch finden Elektro-Fachkräfte aktuelle offene Stellen in der ganzen Schweiz
-            — von Elektroinstallateur EFZ über Montage-Elektriker und Projektleiter Elektro bis hin zu
-            Automatiker, Elektroplaner und Photovoltaik-Spezialisten. Ob du deinen nächsten Elektrojob
+            Auf dachdeckerjob.ch finden Dachdecker-Fachkräfte aktuelle offene Stellen in der ganzen Schweiz
+            — von Dachdecker EFZ über Abdichter und Spengler bis hin zu
+            Flachdachspezialisten, Dachdeckerpolieren und Bauführern. Ob du deinen nächsten Dachdeckerjob
             in Zürich, Bern oder Basel suchst — unsere spezialisierte Jobbörse
-            richtet sich an alle Berufsleute der Elektrobranche.
+            richtet sich an alle Berufsleute der Gebäudehülle.
           </p>
           <p className="text-slate-600 text-base leading-relaxed">
             Ob du in Zürich, Bern, Basel, Luzern, St. Gallen oder einem anderen Schweizer Kanton
@@ -102,13 +102,13 @@ export function HomepageSeoContent() {
         {/* Salary table — highly citeable by AI */}
         <div className="mb-12">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4">
-            Lohnübersicht Elektroberufe Schweiz
+            Lohnübersicht Dachdeckerberufe Schweiz
           </h2>
           <p className="text-slate-500 text-sm mb-4">
-            Durchschnittliche Jahresgehälter für Elektro-Fachkräfte in der Schweiz (2025/2026, Richtwerte).
+            Durchschnittliche Jahresgehälter für Dachdecker-Fachkräfte in der Schweiz (2025/2026, Richtwerte).
             Quellen:{" "}
-            <a href="https://www.eit.swiss" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-700">EIT.swiss</a>,{" "}
-            <a href="https://www.electrosuisse.ch" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-700">Electrosuisse</a>,{" "}
+            <a href="https://www.polybau.ch" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-700">Polybau</a>,{" "}
+            <a href="https://www.gebaeudehuelle.ch" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-700">Gebäudehülle Schweiz</a>,{" "}
             <a href="https://www.bfs.admin.ch" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-700">BFS</a>.
           </p>
           <div className="overflow-x-auto">

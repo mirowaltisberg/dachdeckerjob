@@ -1,7 +1,3 @@
-// SEO-DECISION: Comprehensive landing page matrix covering 12 roles × 8 cantons = 96 combinations.
-// Each page has unique title, description, intro text, and FAQs for content depth and
-// geographic targeting without keyword cannibalization.
-
 export interface LandingFaq {
   question: string;
   answer: string;
@@ -16,167 +12,153 @@ export interface LandingPageConfig {
   faqs: LandingFaq[];
 }
 
-// --- Role-specific content templates ---
-// Used to generate unique content per role × canton combination.
-
 interface RoleContent {
-  /** Short role label for titles */
   label: string;
-  /** Longer description of what this role does */
   roleDescription: string;
-  /** Typical salary range string */
   salaryRange: string;
-  /** Key requirements */
   requirements: string;
-  /** Career progression options */
   career: string;
-  /** Related roles */
   related: string[];
 }
 
 const ROLE_CONTENT: Record<string, RoleContent> = {
-  "Elektroinstallateur EFZ": {
-    label: "Elektroinstallateur EFZ",
+  "Dachdecker EFZ": {
+    label: "Dachdecker EFZ",
     roleDescription:
-      "Elektroinstallateure EFZ planen, installieren und warten elektrische Anlagen in Wohn-, Gewerbe- und Industriebauten. Sie führen Stark- und Schwachstrominstallationen aus, nehmen Anlagen in Betrieb und führen Sicherheitskontrollen durch.",
-    salaryRange: "CHF 75'000 – 95'000",
+      "Dachdecker EFZ decken Steil- und Flachdächer mit verschiedenen Materialien wie Ziegel, Schiefer, Metall und Bitumen. Sie führen Abdichtungen aus, montieren Dachfenster und Schneefangsysteme und sorgen für den Wetterschutz von Gebäuden.",
+    salaryRange: "CHF 65'000 – 80'000",
     requirements:
-      "Abgeschlossene 4-jährige Lehre als Elektroinstallateur EFZ, gute Kenntnisse der NIV und Schweizer Normen, Fahrausweis Kategorie B.",
+      "Abgeschlossene 3-jährige Lehre als Dachdecker EFZ, Schwindelfreiheit, gute körperliche Verfassung, Fahrausweis Kategorie B.",
     career:
-      "Weiterbildung zum Elektro-Sicherheitsberater, Elektro-Projektleiter oder eidg. dipl. Elektroinstallationsmeister.",
-    related: ["Montage-Elektriker EFZ", "Servicetechniker Elektro", "Betriebselektriker"],
+      "Weiterbildung zum Dachdeckerpolier, Bauführer Gebäudehülle oder eidg. dipl. Dachdeckermeister.",
+    related: ["Abdichter EFZ", "Spengler EFZ", "Fassadenbauer EFZ"],
   },
-  "Montage-Elektriker EFZ": {
-    label: "Montage-Elektriker EFZ",
+  "Abdichter EFZ": {
+    label: "Abdichter EFZ",
     roleDescription:
-      "Montage-Elektriker EFZ führen elektrische Montagearbeiten in Gebäuden aus — von Rohbaueinlagen über Kabelzug bis zur Montage von Schaltern und Steckdosen. Sie arbeiten meist im Team auf Baustellen.",
-    salaryRange: "CHF 75'000 – 80'000",
+      "Abdichter EFZ sind Spezialisten für die Abdichtung von Flachdächern, Terrassen und unterirdischen Bauwerken. Sie verarbeiten Bitumen- und Kunststoffbahnen, erstellen Dampfsperren und sorgen für langfristigen Schutz vor Feuchtigkeit.",
+    salaryRange: "CHF 65'000 – 78'000",
     requirements:
-      "Abgeschlossene 3-jährige Lehre als Montage-Elektriker EFZ, handwerkliches Geschick, Teamfähigkeit.",
+      "Abgeschlossene 3-jährige Lehre als Abdichter EFZ, Erfahrung mit Bitumen- und Kunststoffabdichtungen, Schwindelfreiheit.",
     career:
-      "Verkürzte Zusatzlehre als Elektroinstallateur EFZ, Weiterbildung zum Vorarbeiter oder Teamleiter.",
-    related: ["Elektroinstallateur EFZ", "Elektromonteur", "Servicetechniker Elektro"],
+      "Spezialisierung auf Flachdachsanierung, Weiterbildung zum Polier oder Bauführer Gebäudehülle.",
+    related: ["Dachdecker EFZ", "Flachdachspezialist", "Fassadenbauer EFZ"],
   },
-  "Servicetechniker Elektro": {
-    label: "Servicetechniker Elektro",
+  "Spengler EFZ": {
+    label: "Spengler EFZ",
     roleDescription:
-      "Servicetechniker Elektro beheben elektrische Störungen direkt beim Kunden, führen Wartungsarbeiten durch und beraten Kunden zu elektrischen Anlagen. Sie arbeiten selbstständig mit einem ausgerüsteten Servicefahrzeug.",
-    salaryRange: "CHF 75'000 – 90'000",
+      "Spengler EFZ fertigen und montieren Blechverkleidungen, Dachrinnen, Ablaufrohre und Fassadenverkleidungen aus Metall. Sie arbeiten mit Kupfer, Zink, Aluminium und Edelstahl und sorgen für die fachgerechte Entwässerung von Dächern.",
+    salaryRange: "CHF 65'000 – 80'000",
     requirements:
-      "Ausbildung als Elektroinstallateur EFZ, Freude am Kundenkontakt, lösungsorientierte Arbeitsweise, Fahrausweis.",
+      "Abgeschlossene 4-jährige Lehre als Spengler EFZ, handwerkliches Geschick, Erfahrung mit Blechbearbeitung und Löttechnik.",
     career:
-      "Spezialisierung auf Smart Home, Gebäudeautomation oder Photovoltaik. Weiterbildung zum Kundendienstleiter.",
-    related: ["Elektroinstallateur EFZ", "Betriebselektriker", "Gebäudetechniker"],
+      "Weiterbildung zum Spenglerpolier, Bauführer oder Spezialisierung auf Fassadenbau und Metallverkleidungen.",
+    related: ["Dachdecker EFZ", "Bauspengler", "Fassadenbauer EFZ"],
   },
-  "Projektleiter Elektro": {
-    label: "Projektleiter Elektro",
+  "Fassadenbauer EFZ": {
+    label: "Fassadenbauer EFZ",
     roleDescription:
-      "Projektleiter Elektro leiten Elektroprojekte von der Offerte über die Planung bis zur Übergabe. Sie führen Montageequipen, kontrollieren Kosten und Termine und beraten Bauherren und Architekten.",
-    salaryRange: "CHF 85'000 – 110'000",
+      "Fassadenbauer EFZ montieren vorgehängte hinterlüftete Fassaden, Kompaktfassaden und Verkleidungen aus verschiedenen Materialien. Sie arbeiten an der Gebäudehülle und sorgen für Wärmedämmung, Witterungsschutz und ästhetische Gestaltung.",
+    salaryRange: "CHF 62'000 – 78'000",
     requirements:
-      "Weiterbildung zum Elektro-Projektleiter, Führungserfahrung, Kenntnisse in KNX/DALI, Verhandlungsgeschick.",
+      "Abgeschlossene 3-jährige Lehre als Fassadenbauer EFZ, Kenntnisse in Wärmedämmung und Fassadensystemen, Schwindelfreiheit.",
     career:
-      "Aufstieg zum Bereichsleiter, Geschäftsführer oder Gründung eines eigenen Elektrobetriebs.",
-    related: ["Bauleiter Elektro", "Elektroplaner", "Elektroinstallateur EFZ"],
+      "Spezialisierung auf energetische Fassadensanierung, Weiterbildung zum Polier oder Bauführer Gebäudehülle.",
+    related: ["Dachdecker EFZ", "Spengler EFZ", "Zimmermann"],
   },
-  "Automatiker EFZ": {
-    label: "Automatiker EFZ",
+  "Dachdeckerpolier": {
+    label: "Dachdeckerpolier",
     roleDescription:
-      "Automatiker EFZ bauen und verdrahten Steuerungs- und Schaltanlagen für Industrie und Gebäudeautomation. Sie programmieren SPS-Steuerungen, nehmen Anlagen in Betrieb und führen Fehlersuchen durch.",
-    salaryRange: "CHF 75'000 – 95'000",
-    requirements:
-      "Abgeschlossene 4-jährige Lehre als Automatiker EFZ, SPS-Programmierkenntnisse, exaktes Lesen von Elektroschemata.",
-    career:
-      "Spezialisierung auf Robotik, Industrie 4.0 oder Gebäudeautomation. Weiterbildung zum Automationsingenieur.",
-    related: ["Schaltanlagenbauer", "Betriebselektriker", "Elektroinstallateur EFZ"],
-  },
-  "Elektroplaner": {
-    label: "Elektroplaner",
-    roleDescription:
-      "Elektroplaner erstellen Elektropläne und Installationsschemen für Neubauten und Umbauten. Sie berechnen Kabelquerschnitte, dimensionieren Verteilungen und arbeiten eng mit Architekten und Bauherren zusammen.",
+      "Dachdeckerpoliere leiten Teams auf der Baustelle, koordinieren Arbeitsabläufe und überwachen die Qualität der Dachdeckerarbeiten. Sie sind die Schnittstelle zwischen Bauführung und Montageequipe und verantworten Material- und Terminplanung.",
     salaryRange: "CHF 80'000 – 100'000",
     requirements:
-      "Ausbildung als Elektroinstallateur EFZ mit Weiterbildung zum Elektroplaner oder Gebäudetechnikplaner, CAD-Kenntnisse.",
+      "Ausbildung als Dachdecker EFZ mit Weiterbildung zum Polier, Führungserfahrung, Organisationstalent.",
     career:
-      "Aufstieg zum Planungsleiter, Spezialisierung auf Energieberatung oder nachhaltiges Bauen.",
-    related: ["Projektleiter Elektro", "Bauleiter Elektro", "Gebäudetechniker"],
+      "Aufstieg zum Bauführer Gebäudehülle, Betriebsleiter oder Geschäftsführer eines Dachdeckerbetriebs.",
+    related: ["Bauführer Dachdecker", "Dachdecker EFZ", "Spengler EFZ"],
   },
-  "Elektromonteur": {
-    label: "Elektromonteur",
+  "Bauführer Dachdecker": {
+    label: "Bauführer Dachdecker",
     roleDescription:
-      "Elektromonteure führen elektrische Installationsarbeiten auf Baustellen und in bestehenden Gebäuden aus. Sie verlegen Kabel, montieren Verteilungen und installieren Beleuchtungs- und Steckdosensysteme.",
-    salaryRange: "CHF 70'000 – 85'000",
+      "Bauführer Dachdecker leiten Dachdeckerprojekte von der Offerte über die Planung bis zur Abnahme. Sie führen Montageequipen, kontrollieren Kosten und Termine, beraten Bauherren und Architekten und stellen die Qualität sicher.",
+    salaryRange: "CHF 85'000 – 110'000",
     requirements:
-      "Ausbildung im Elektrobereich (EFZ oder gleichwertig), handwerkliches Geschick, Teamfähigkeit.",
+      "Weiterbildung zum Bauführer Gebäudehülle oder gleichwertig, Führungserfahrung, Kenntnisse in Baunormen und AVOR.",
     career:
-      "Weiterbildung zum Elektroinstallateur EFZ, Vorarbeiter oder Spezialisierung auf einen Fachbereich.",
-    related: ["Montage-Elektriker EFZ", "Elektroinstallateur EFZ", "Servicetechniker Elektro"],
+      "Aufstieg zum Bereichsleiter, Geschäftsführer oder Gründung eines eigenen Dachdeckerbetriebs.",
+    related: ["Dachdeckerpolier", "Dachdecker EFZ", "Spengler EFZ"],
   },
-  "Gebäudetechniker": {
-    label: "Gebäudetechniker",
+  "Flachdachspezialist": {
+    label: "Flachdachspezialist",
     roleDescription:
-      "Gebäudetechniker sind Spezialisten für die technische Infrastruktur von Gebäuden — von Heizung, Lüftung und Klima (HLK) über Sanitäranlagen bis zur Gebäudeautomation. Sie planen, installieren und optimieren gebäudetechnische Systeme.",
-    salaryRange: "CHF 75'000 – 95'000",
+      "Flachdachspezialisten sind Experten für die Konstruktion, Abdichtung und Sanierung von Flachdächern. Sie arbeiten mit modernen Abdichtungssystemen, Begrünungen und Photovoltaik-Unterkonstruktionen auf Flachdächern.",
+    salaryRange: "CHF 68'000 – 85'000",
     requirements:
-      "Ausbildung im Bereich Gebäudetechnik oder Elektro, Kenntnisse in HLK-Systemen und Gebäudeautomation.",
+      "Ausbildung als Dachdecker EFZ oder Abdichter EFZ, Erfahrung mit Flachdachsystemen, Kenntnisse in Dachbegrünung.",
     career:
-      "Spezialisierung auf Smart Building, Energiemanagement oder nachhaltige Gebäudetechnik.",
-    related: ["Elektroplaner", "Servicetechniker Elektro", "Projektleiter Elektro"],
+      "Spezialisierung auf Gründächer, Solardach-Systeme oder energetische Dachsanierung. Weiterbildung zum Polier.",
+    related: ["Abdichter EFZ", "Dachdecker EFZ", "Dachsanierer"],
   },
-  "Photovoltaik-Spezialist": {
-    label: "Photovoltaik-Spezialist",
+  "Zimmermann": {
+    label: "Zimmermann",
     roleDescription:
-      "Photovoltaik-Spezialisten planen und installieren Solaranlagen auf Dächern und Fassaden. Sie dimensionieren PV-Systeme, nehmen Wechselrichter in Betrieb und beraten Kunden zu Eigenverbrauchsoptimierung und Förderprogrammen.",
-    salaryRange: "CHF 70'000 – 90'000",
+      "Zimmerleute erstellen Dachstühle, Holzkonstruktionen und Aufbauten für Steildächer. Sie arbeiten eng mit Dachdeckern zusammen und sind für die tragende Konstruktion unter der Dacheindeckung verantwortlich.",
+    salaryRange: "CHF 68'000 – 85'000",
     requirements:
-      "Ausbildung als Elektroinstallateur EFZ oder Solarteur, Kenntnisse in PV-Planung und Wechselrichtertechnik.",
+      "Abgeschlossene 4-jährige Lehre als Zimmermann EFZ, Erfahrung im Holzbau und Dachstuhlbau, Fahrausweis.",
     career:
-      "Wachstumsbranche durch die Energiewende — Spezialisierung auf Grossanlagen, Speicherlösungen oder Energieberatung.",
-    related: ["Elektroinstallateur EFZ", "Elektroplaner", "Gebäudetechniker"],
+      "Spezialisierung auf Dachausbauten, Weiterbildung zum Zimmereipolier, Holzbau-Vorarbeiter oder Holzbauingenieur.",
+    related: ["Dachdecker EFZ", "Spengler EFZ", "Fassadenbauer EFZ"],
   },
-  "Schaltanlagenbauer": {
-    label: "Schaltanlagenbauer",
+  "Bauspengler": {
+    label: "Bauspengler",
     roleDescription:
-      "Schaltanlagenbauer konstruieren, verdrahten und prüfen Schaltgerätekombinationen und Steuerungsanlagen für Industrie, Infrastruktur und Energieversorgung. Sie arbeiten nach Elektroschemata und führen Funktionsprüfungen durch.",
-    salaryRange: "CHF 72'000 – 88'000",
+      "Bauspengler fertigen und montieren Blechabschlüsse, Dachentwässerungen und Wandanschlüsse auf Baustellen. Sie arbeiten an der Schnittstelle zwischen Dach und Fassade und sorgen für dichte Übergänge und Anschlüsse.",
+    salaryRange: "CHF 65'000 – 80'000",
     requirements:
-      "Ausbildung als Automatiker EFZ oder Elektroinstallateur EFZ, exaktes Arbeiten nach Schema, Prüferfahrung.",
+      "Ausbildung als Spengler EFZ oder gleichwertig, Erfahrung mit Falz- und Löttechnik, handwerkliches Geschick.",
     career:
-      "Spezialisierung auf Mittelspannungsanlagen, Automatisierung oder Qualitätsmanagement.",
-    related: ["Automatiker EFZ", "Betriebselektriker", "Elektroinstallateur EFZ"],
+      "Weiterbildung zum Spenglerpolier, Spezialisierung auf Kupfer- und Zinkarbeiten oder Fassadenverkleidungen.",
+    related: ["Spengler EFZ", "Dachdecker EFZ", "Fassadenbauer EFZ"],
   },
-  "Bauleiter Elektro": {
-    label: "Bauleiter Elektro",
+  "Dachsanierer": {
+    label: "Dachsanierer",
     roleDescription:
-      "Bauleiter Elektro koordinieren und überwachen Elektroinstallationen auf Grossbaustellen. Sie sind verantwortlich für Terminplanung, Kostenkontrolle, Qualitätssicherung und die Führung von Subunternehmern.",
-    salaryRange: "CHF 90'000 – 120'000",
+      "Dachsanierer sind spezialisiert auf die Erneuerung und Instandsetzung bestehender Dächer. Sie beurteilen den Zustand von Dächern, planen Sanierungsmassnahmen und führen Reparaturen an Steil- und Flachdächern durch.",
+    salaryRange: "CHF 65'000 – 82'000",
     requirements:
-      "Weiterbildung zum Elektro-Projektleiter oder Bauleiter, mehrjährige Berufserfahrung, Führungskompetenz.",
+      "Ausbildung als Dachdecker EFZ oder Abdichter EFZ, Erfahrung in Dachsanierung, Kenntnisse verschiedener Dachsysteme.",
     career:
-      "Aufstieg zum Gesamtprojektleiter, Niederlassungsleiter oder Geschäftsführer eines Elektrobetriebs.",
-    related: ["Projektleiter Elektro", "Elektroplaner", "Elektroinstallateur EFZ"],
+      "Spezialisierung auf energetische Dachsanierung, Weiterbildung zum Polier oder Bauführer.",
+    related: ["Dachdecker EFZ", "Flachdachspezialist", "Abdichter EFZ"],
   },
-  "Betriebselektriker": {
-    label: "Betriebselektriker",
+  "Gerüstbauer": {
+    label: "Gerüstbauer",
     roleDescription:
-      "Betriebselektriker sind für die Wartung, Instandhaltung und Reparatur elektrischer Anlagen in Industrie- und Gewerbebetrieben zuständig. Sie führen regelmässige Prüfungen durch und sorgen für einen störungsfreien Betrieb.",
-    salaryRange: "CHF 75'000 – 90'000",
+      "Gerüstbauer erstellen Fassaden- und Dachgerüste, die Dachdeckern und anderen Handwerkern sicheres Arbeiten in der Höhe ermöglichen. Sie planen, montieren und demontieren Gerüstkonstruktionen gemäss Sicherheitsvorschriften.",
+    salaryRange: "CHF 60'000 – 75'000",
     requirements:
-      "Ausbildung als Elektroinstallateur EFZ oder Automatiker EFZ, Erfahrung in industrieller Instandhaltung.",
+      "Ausbildung als Gerüstbauer EFZ oder Gerüstmonteur, Schwindelfreiheit, gute körperliche Verfassung, Sicherheitsbewusstsein.",
     career:
-      "Aufstieg zum Instandhaltungsleiter, Spezialisierung auf Prozessautomation oder Energiemanagement.",
-    related: ["Automatiker EFZ", "Servicetechniker Elektro", "Elektroinstallateur EFZ"],
+      "Weiterbildung zum Gerüstbaupolier, Spezialisierung auf Spezialgerüste oder Sicherheitsbeauftragter.",
+    related: ["Dachdecker EFZ", "Fassadenbauer EFZ", "Zimmermann"],
+  },
+  "Steildachspezialist": {
+    label: "Steildachspezialist",
+    roleDescription:
+      "Steildachspezialisten sind Experten für die Eindeckung und Sanierung von geneigten Dächern. Sie arbeiten mit Ziegeln, Schiefer, Faserzement und Metalleindeckungen und beherrschen verschiedene Verlegetechniken.",
+    salaryRange: "CHF 68'000 – 85'000",
+    requirements:
+      "Ausbildung als Dachdecker EFZ, Erfahrung mit verschiedenen Eindeckungsmaterialien, Schwindelfreiheit.",
+    career:
+      "Spezialisierung auf denkmalgeschützte Dächer, Weiterbildung zum Polier oder Bauführer Gebäudehülle.",
+    related: ["Dachdecker EFZ", "Spengler EFZ", "Dachsanierer"],
   },
 };
 
-// --- Canton-specific content ---
-
 interface CantonContent {
-  /** Full canton name for titles */
   name: string;
-  /** Short canton abbreviation */
   abbr: string;
-  /** Brief economic context for the electrical industry */
   context: string;
 }
 
@@ -185,81 +167,78 @@ const CANTON_CONTENT: Record<string, CantonContent> = {
     name: "Zürich",
     abbr: "ZH",
     context:
-      "Der Kanton Zürich ist der grösste Arbeitsmarkt der Schweiz mit zahlreichen Neubauprojekten, Smart-Building-Initiativen und einer hohen Dichte an Elektroinstallationsfirmen.",
+      "Der Kanton Zürich ist der grösste Arbeitsmarkt der Schweiz mit zahlreichen Neubauprojekten, Dachsanierungen und einer hohen Dichte an Gebäudehülle-Betrieben.",
   },
   BE: {
     name: "Bern",
     abbr: "BE",
     context:
-      "Im Kanton Bern gibt es eine starke Nachfrage nach Elektro-Fachkräften, besonders in der Bundesstadt und im Berner Oberland — von Wohnbau bis Infrastrukturprojekte.",
+      "Im Kanton Bern gibt es eine starke Nachfrage nach Dachdecker-Fachkräften, besonders in der Bundesstadt und im Berner Oberland — von Wohnbau bis denkmalgeschützte Gebäude.",
   },
   BS: {
     name: "Basel",
     abbr: "BS",
     context:
-      "Basel-Stadt und die Region Nordwestschweiz bieten attraktive Arbeitsbedingungen mit zahlreichen Industriebetrieben, Pharmaunternehmen und grossen Bauprojekten.",
+      "Basel-Stadt und die Region Nordwestschweiz bieten attraktive Arbeitsbedingungen mit zahlreichen Sanierungsprojekten, Neubauten und Industriedächern.",
   },
   AG: {
     name: "Aargau",
     abbr: "AG",
     context:
-      "Der Kanton Aargau ist ein wichtiger Industriestandort mit vielen Energieversorgern und einer hohen Nachfrage nach Elektro-Fachkräften in Industrie und Bau.",
+      "Der Kanton Aargau ist ein wichtiger Wirtschaftsstandort mit vielen Neubauprojekten und einer hohen Nachfrage nach Dachdecker-Fachkräften in Wohn- und Gewerbebau.",
   },
   SG: {
     name: "St. Gallen",
     abbr: "SG",
     context:
-      "Die Ostschweiz mit dem Kanton St. Gallen bietet vielfältige Möglichkeiten für Elektro-Fachkräfte — von KMU-Betrieben bis zu grossen Gebäudetechnik-Unternehmen.",
+      "Die Ostschweiz mit dem Kanton St. Gallen bietet vielfältige Möglichkeiten für Dachdecker-Fachkräfte — von KMU-Betrieben bis zu grossen Gebäudehülle-Unternehmen.",
   },
   LU: {
     name: "Luzern",
     abbr: "LU",
     context:
-      "Im Kanton Luzern wächst die Nachfrage nach Elektro-Fachkräften stetig — getrieben durch Neubauprojekte, Tourismus-Infrastruktur und Smart-Building-Trends.",
+      "Im Kanton Luzern wächst die Nachfrage nach Dachdecker-Fachkräften stetig — getrieben durch Neubauprojekte, Tourismusinfrastruktur und energetische Sanierungen.",
   },
   SO: {
     name: "Solothurn",
     abbr: "SO",
     context:
-      "Der Kanton Solothurn bietet als Industriestandort zwischen Bern und Basel gute Karrierechancen für Elektro-Fachkräfte in Produktion, Bau und Instandhaltung.",
+      "Der Kanton Solothurn bietet als Standort zwischen Bern und Basel gute Karrierechancen für Dachdecker-Fachkräfte in Neubau, Sanierung und Industriebau.",
   },
   ZG: {
     name: "Zug",
     abbr: "ZG",
     context:
-      "Der Kanton Zug bietet als wirtschaftsstarker Standort überdurchschnittliche Löhne und spannende Projekte im Bereich Gebäudetechnik und Hightech-Infrastruktur.",
+      "Der Kanton Zug bietet als wirtschaftsstarker Standort überdurchschnittliche Löhne und anspruchsvolle Projekte im Bereich Gebäudehülle und Dachbau.",
   },
   TG: {
     name: "Thurgau",
     abbr: "TG",
     context:
-      "Der Kanton Thurgau bietet als wachsender Wirtschaftsstandort in der Ostschweiz zunehmend Chancen für Elektro-Fachkräfte — besonders in Industrie, Wohnungsbau und Landwirtschaftstechnik.",
+      "Der Kanton Thurgau bietet als wachsender Wirtschaftsstandort in der Ostschweiz zunehmend Chancen für Dachdecker-Fachkräfte — besonders in Wohnungsbau und Landwirtschaftsgebäuden.",
   },
   GR: {
     name: "Graubünden",
     abbr: "GR",
     context:
-      "Im Kanton Graubünden sind Elektro-Fachkräfte gefragt — von Tourismusinfrastruktur und Bergbahnen über Energieprojekte bis zu Neubauten in den Ferienorten.",
+      "Im Kanton Graubünden sind Dachdecker-Fachkräfte gefragt — von Ferienort-Chalets über Berghotels bis zu Infrastrukturgebäuden mit anspruchsvollen Dachkonstruktionen.",
   },
   SH: {
     name: "Schaffhausen",
     abbr: "SH",
     context:
-      "Der Kanton Schaffhausen bietet als kompakter Industriestandort attraktive Stellen für Elektro-Fachkräfte, insbesondere in der Maschinenindustrie und im Anlagenbau.",
+      "Der Kanton Schaffhausen bietet als kompakter Standort attraktive Stellen für Dachdecker-Fachkräfte, insbesondere in Sanierung und Wohnungsbau.",
   },
   FR: {
     name: "Fribourg",
     abbr: "FR",
     context:
-      "Der zweisprachige Kanton Fribourg wächst dynamisch und bietet Elektro-Fachkräften vielfältige Möglichkeiten in Wohnungsbau, Industrie und öffentlicher Infrastruktur.",
+      "Der zweisprachige Kanton Fribourg wächst dynamisch und bietet Dachdecker-Fachkräften vielfältige Möglichkeiten in Wohnungsbau, Gewerbe und öffentlicher Infrastruktur.",
   },
 };
 
-// --- All role keys ---
 const ALL_ROLES = Object.keys(ROLE_CONTENT);
 const ALL_CANTONS = Object.keys(CANTON_CONTENT);
-
-// --- Content generation ---
 
 function buildLandingConfig(roleKey: string, cantonKey: string): LandingPageConfig {
   const role = ROLE_CONTENT[roleKey];
@@ -275,8 +254,8 @@ function buildLandingConfig(roleKey: string, cantonKey: string): LandingPageConf
     role: roleKey,
     canton: cantonKey,
     title: `${role.label} Jobs in ${canton.name}`,
-    description: `Aktuelle ${role.label} Stellen im Kanton ${canton.name}. ${role.roleDescription.split(".")[0]}. Jetzt bewerben auf elektrojob.ch.`,
-    intro: `Als ${role.label} in ${canton.name} findest du auf elektrojob.ch alle aktuellen Stellenangebote in deiner Region. ${role.roleDescription} ${canton.context} Die Nachfrage nach qualifizierten ${role.label}-Fachkräften im Kanton ${canton.name} ist hoch — Arbeitgeber suchen gezielt nach Kandidaten mit ${role.requirements.split(",")[0].toLowerCase()}. Das durchschnittliche Jahresgehalt für ${role.label} in der Schweiz liegt bei ${role.salaryRange}. Verwandte Berufe wie ${relatedRolesList} bieten zusätzliche Karrieremöglichkeiten in der Elektrobranche. ${role.career} Nutze unsere smarte Filterung nach Pensum, Umkreis und Anstellungsart, um die passende Stelle zu finden. Bewirb dich direkt online und lade deinen Lebenslauf hoch.`,
+    description: `Aktuelle ${role.label} Stellen im Kanton ${canton.name}. ${role.roleDescription.split(".")[0]}. Jetzt bewerben auf dachdeckerjob.ch.`,
+    intro: `Als ${role.label} in ${canton.name} findest du auf dachdeckerjob.ch alle aktuellen Stellenangebote in deiner Region. ${role.roleDescription} ${canton.context} Die Nachfrage nach qualifizierten ${role.label}-Fachkräften im Kanton ${canton.name} ist hoch — Arbeitgeber suchen gezielt nach Kandidaten mit ${role.requirements.split(",")[0].toLowerCase()}. Das durchschnittliche Jahresgehalt für ${role.label} in der Schweiz liegt bei ${role.salaryRange}. Verwandte Berufe wie ${relatedRolesList} bieten zusätzliche Karrieremöglichkeiten in der Dachdeckerbranche. ${role.career} Nutze unsere smarte Filterung nach Pensum, Umkreis und Anstellungsart, um die passende Stelle zu finden. Bewirb dich direkt online und lade deinen Lebenslauf hoch.`,
     faqs: [
       {
         question: `Was verdient ein ${role.label} im Kanton ${canton.name}?`,
@@ -292,18 +271,15 @@ function buildLandingConfig(roleKey: string, cantonKey: string): LandingPageConf
       },
       {
         question: `Wie viele ${role.label} Jobs gibt es in ${canton.name}?`,
-        answer: `Auf elektrojob.ch findest du aktuelle ${role.label} Stellen im Kanton ${canton.name}. Die Anzahl verfügbarer Jobs variiert — nutze unsere Suche für die aktuellsten Ergebnisse.`,
+        answer: `Auf dachdeckerjob.ch findest du aktuelle ${role.label} Stellen im Kanton ${canton.name}. Die Anzahl verfügbarer Jobs variiert — nutze unsere Suche für die aktuellsten Ergebnisse.`,
       },
     ],
   };
 }
 
-// --- Build full matrix ---
 export const TOP_LANDING_PAGES: LandingPageConfig[] = ALL_ROLES.flatMap((roleKey) =>
   ALL_CANTONS.map((cantonKey) => buildLandingConfig(roleKey, cantonKey))
 );
-
-// --- Slug helpers ---
 
 function normalizeSlug(value: string): string {
   return value
@@ -325,7 +301,7 @@ export function toCantonSlug(canton: string): string {
 }
 
 export function getLandingPath(config: LandingPageConfig): string {
-  return `/elektrojobs/${toRoleSlug(config.role)}/${toCantonSlug(config.canton)}`;
+  return `/dachdeckerjobs/${toRoleSlug(config.role)}/${toCantonSlug(config.canton)}`;
 }
 
 export function findLandingPageBySlug(roleSlug: string, cantonSlug: string): LandingPageConfig | null {
@@ -336,10 +312,6 @@ export function findLandingPageBySlug(roleSlug: string, cantonSlug: string): Lan
   );
 }
 
-/**
- * Get landing pages for the same canton (different roles) or same role (different cantons).
- * Used for cross-linking on landing pages.
- */
 export function getRelatedLandingPages(config: LandingPageConfig, limit = 8): LandingPageConfig[] {
   const sameCantonDifferentRole = TOP_LANDING_PAGES.filter(
     (p) => p.canton === config.canton && p.role !== config.role
@@ -348,7 +320,6 @@ export function getRelatedLandingPages(config: LandingPageConfig, limit = 8): La
     (p) => p.role === config.role && p.canton !== config.canton
   );
 
-  // Mix: take some from same canton, some from same role
   const mixed: LandingPageConfig[] = [];
   const maxPerGroup = Math.ceil(limit / 2);
   mixed.push(...sameCantonDifferentRole.slice(0, maxPerGroup));

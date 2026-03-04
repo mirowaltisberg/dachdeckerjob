@@ -7,7 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 export const metadata: Metadata = {
   title: "Kontakt & Support",
   description:
-    "Kontaktieren Sie das Team von elektrojob.ch — wir helfen Ihnen bei Fragen rund um Stelleninserate und Bewerbungen.",
+    "Kontaktieren Sie das Team von dachdeckerjob.ch — wir helfen Ihnen bei Fragen rund um Stelleninserate und Bewerbungen.",
 };
 
 export default function KontaktPage() {
@@ -18,7 +18,7 @@ export default function KontaktPage() {
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo.svg"
-              alt="elektrojob.ch"
+              alt="dachdeckerjob.ch"
               width={142}
               height={29}
               className="h-7 sm:h-8 w-auto"
@@ -33,7 +33,7 @@ export default function KontaktPage() {
           Kontakt & Support
         </h1>
         <p className="text-slate-600 mb-6 leading-relaxed">
-          Haben Sie Fragen zu elektrojob.ch? Ob Sie als Arbeitgeber inserieren
+          Haben Sie Fragen zu dachdeckerjob.ch? Ob Sie als Arbeitgeber inserieren
           oder als Fachkraft nach einem neuen Job suchen — unser Team hilft
           Ihnen gerne weiter.
         </p>
@@ -41,10 +41,10 @@ export default function KontaktPage() {
           <div>
             <h2 className="text-sm font-semibold text-slate-900 mb-1">E-Mail</h2>
             <a
-              href="mailto:info@elektrojob.ch"
+              href="mailto:info@dachdeckerjob.ch"
               className="text-primary hover:underline text-sm"
             >
-              info@elektrojob.ch
+              info@dachdeckerjob.ch
             </a>
           </div>
           <div>
@@ -57,7 +57,7 @@ export default function KontaktPage() {
             </ul>
           </div>
           <Button asChild className="w-full">
-            <a href="mailto:info@elektrojob.ch">E-Mail senden</a>
+            <a href="mailto:info@dachdeckerjob.ch">E-Mail senden</a>
           </Button>
         </div>
         <div className="mt-6 text-center">

@@ -23,7 +23,7 @@ import { buildJobPostingSchema } from "@/lib/job-schema";
 
 export const revalidate = 3600;
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://elektrojob.ch";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://dachdeckerjob.ch";
 
 interface LandingPageProps {
   params: Promise<{ role: string; canton: string }>;
@@ -54,7 +54,7 @@ function buildBreadcrumbSchema(config: LandingPageConfig) {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Elektrojobs",
+        name: "Dachdeckerjobs",
         item: `${SITE_URL}/`,
       },
       {
@@ -120,8 +120,8 @@ export async function generateMetadata({ params }: LandingPageProps): Promise<Me
 
   if (!config) {
     return {
-      title: "Elektrojobs",
-      description: "Aktuelle Elektrojobs in der Schweiz.",
+      title: "Dachdeckerjobs",
+      description: "Aktuelle Dachdeckerjobs in der Schweiz.",
     };
   }
 
@@ -132,7 +132,7 @@ export async function generateMetadata({ params }: LandingPageProps): Promise<Me
       canonical: getLandingPath(config),
     },
     openGraph: {
-      title: `${config.title} | elektrojob.ch`,
+      title: `${config.title} | dachdeckerjob.ch`,
       description: config.description,
       url: getLandingPath(config),
       type: "website",
@@ -173,7 +173,7 @@ export default async function LandingRolePage({ params }: LandingPageProps) {
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo.svg"
-              alt="elektrojob.ch — Elektrojobs in der Schweiz"
+              alt="dachdeckerjob.ch — Dachdeckerjobs in der Schweiz"
               width={142}
               height={29}
               className="h-7 sm:h-8 w-auto"
@@ -192,7 +192,7 @@ export default async function LandingRolePage({ params }: LandingPageProps) {
         <Breadcrumbs
           items={[
             { label: "Startseite", href: "/" },
-            { label: "Elektrojobs", href: "/" },
+            { label: "Dachdeckerjobs", href: "/" },
             { label: config.title },
           ]}
           className="mb-4"

@@ -40,14 +40,14 @@ function getDisplayJobId(job: JobListing): string {
   }
   if (job.source === "scraped") {
     const hash = job.id.replace(/^scraped-/, "");
-    return `ELK-${hash.slice(0, 8).toUpperCase()}`;
+    return `DCK-${hash.slice(0, 8).toUpperCase()}`;
   }
-  return `ELK-${job.id.padStart(4, "0")}`;
+  return `DCK-${job.id.padStart(4, "0")}`;
 }
 
 export const revalidate = 3600;
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://elektrojob.ch";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://dachdeckerjob.ch";
 
 // SEO-DECISION: Map Swiss-German job type labels to schema.org employmentType values
 function mapEmploymentType(type: string): string | string[] {
@@ -164,7 +164,7 @@ function buildJobPostingSchema(job: JobListing): Record<string, any> {
       },
     },
     directApply: true,
-    industry: "Elektroinstallation & Gebäudetechnik",
+    industry: "Dachdeckerei & Gebäudehülle",
     url: `${SITE_URL}/jobs/${job.id}`,
   };
 
@@ -198,7 +198,7 @@ function buildJobBreadcrumbSchema(job: JobListing) {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Elektrojobs",
+        name: "Dachdeckerjobs",
         item: `${SITE_URL}/`,
       },
       {
@@ -255,7 +255,7 @@ export async function generateMetadata(props: JobDetailsPageProps): Promise<Meta
 
   if (!job) {
     return {
-      title: "Stelle nicht gefunden | elektrojob.ch",
+      title: "Stelle nicht gefunden | dachdeckerjob.ch",
       description: "Die gewünschte Stelle konnte nicht gefunden werden.",
     };
   }
@@ -263,7 +263,7 @@ export async function generateMetadata(props: JobDetailsPageProps): Promise<Meta
   const description = job.description.slice(0, 160);
 
   return {
-    title: `${job.title} | elektrojob.ch`,
+    title: `${job.title} | dachdeckerjob.ch`,
     description,
     alternates: {
       canonical: `/jobs/${job.id}`,
@@ -344,7 +344,7 @@ export default async function JobDetailsPage(props: JobDetailsPageProps) {
       <header className="border-b sticky top-0 z-30 header-blur animate-header">
         <div className="container mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
           <Link href="/" className="flex items-center shrink-0">
-            <Image src="/logo.svg" alt="elektrojob.ch — Elektrojobs in der Schweiz" width={142} height={29} className="h-7 sm:h-8 w-auto" priority />
+            <Image src="/logo.svg" alt="dachdeckerjob.ch — Dachdeckerjobs in der Schweiz" width={142} height={29} className="h-7 sm:h-8 w-auto" priority />
           </Link>
           <nav className="shrink-0">
             <Button variant="ghost" size="sm" asChild className="text-sm px-2 sm:px-4 h-9 sm:h-10 btn-interactive">
@@ -358,7 +358,7 @@ export default async function JobDetailsPage(props: JobDetailsPageProps) {
         <Breadcrumbs
           items={[
             { label: "Startseite", href: "/" },
-            { label: "Elektrojobs", href: "/" },
+            { label: "Dachdeckerjobs", href: "/" },
             { label: job.title },
           ]}
           className="mb-4 sm:mb-6"

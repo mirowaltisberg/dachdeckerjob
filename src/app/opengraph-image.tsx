@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "elektrojob.ch — Elektrojobs Schweiz";
+export const alt = "dachdeckerjob.ch — Dachdeckerjobs Schweiz";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -19,7 +19,7 @@ export default function OgImage() {
           fontFamily: "sans-serif",
         }}
       >
-        {/* Lightning bolt */}
+        {/* Roof icon */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 48 48"
@@ -28,9 +28,10 @@ export default function OgImage() {
           style={{ marginBottom: 32 }}
         >
           <path
-            d="M23.75 3L13.75 23h8L17.75 45 34.25 21h-8.5l5-18z"
-            fill="#fba918"
+            d="M4 32L24 12l20 20H4z"
+            fill="#B06030"
           />
+          <rect x="30" y="14" width="4" height="10" rx="0.5" fill="#8B4513"/>
         </svg>
 
         {/* Brand name */}
@@ -42,9 +43,9 @@ export default function OgImage() {
           }}
         >
           <span style={{ fontSize: 72, fontWeight: 900, color: "#f8fafc", letterSpacing: -1 }}>
-            Elektro
+            Dachdecker
           </span>
-          <span style={{ fontSize: 72, fontWeight: 900, color: "#fba918", letterSpacing: -1 }}>
+          <span style={{ fontSize: 72, fontWeight: 900, color: "#B06030", letterSpacing: -1 }}>
             job
           </span>
           <span style={{ fontSize: 52, fontWeight: 400, color: "#94a3b8", letterSpacing: -1 }}>
@@ -61,7 +62,7 @@ export default function OgImage() {
             letterSpacing: 0.5,
           }}
         >
-          Die Jobbörse für Elektro-Fachkräfte in der Schweiz
+          Die Jobbörse für Dachdecker-Fachkräfte in der Schweiz
         </div>
       </div>
     ),

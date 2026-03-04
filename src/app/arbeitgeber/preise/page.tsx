@@ -8,7 +8,7 @@ import { SiteFooter } from "@/components/site-footer";
 export const metadata: Metadata = {
   title: "Preise & Pakete",
   description:
-    "Erfahren Sie mehr über die Inseratepreise und Pakete auf elektrojob.ch — der spezialisierten Jobbörse für Elektro-Fachkräfte.",
+    "Erfahren Sie mehr über die Inseratepreise und Pakete auf dachdeckerjob.ch — der spezialisierten Jobbörse für Dachdecker-Fachkräfte.",
 };
 
 export default function PreisePage() {
@@ -19,7 +19,7 @@ export default function PreisePage() {
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo.svg"
-              alt="elektrojob.ch"
+              alt="dachdeckerjob.ch"
               width={142}
               height={29}
               className="h-7 sm:h-8 w-auto"
@@ -34,8 +34,8 @@ export default function PreisePage() {
           Preise & Pakete
         </h1>
         <p className="text-slate-600 mb-8 leading-relaxed">
-          Publizieren Sie Ihre offenen Stellen auf elektrojob.ch — der
-          spezialisierten Jobbörse für Elektro-Fachkräfte in der Schweiz. Wir
+          Publizieren Sie Ihre offenen Stellen auf dachdeckerjob.ch — der
+          spezialisierten Jobbörse für Dachdecker-Fachkräfte in der Schweiz. Wir
           bieten attraktive Konditionen für Einzelinserate und Firmenpakete.
         </p>
 
@@ -65,7 +65,7 @@ export default function PreisePage() {
         <div className="text-center">
           <p className="text-slate-600 mb-4">Kontaktieren Sie uns für ein individuelles Angebot:</p>
           <Button asChild size="lg">
-            <a href="mailto:info@elektrojob.ch">info@elektrojob.ch kontaktieren</a>
+            <a href="mailto:info@dachdeckerjob.ch">info@dachdeckerjob.ch kontaktieren</a>
           </Button>
         </div>
         <div className="mt-6 text-center">

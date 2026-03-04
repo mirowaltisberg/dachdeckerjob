@@ -14,47 +14,47 @@ const plusJakarta = Plus_Jakarta_Sans({
   preload: true,
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://elektrojob.ch";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://dachdeckerjob.ch";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Elektro Jobs Schweiz 2026 | Offene Stellen finden",
-    template: "%s | elektrojob.ch",
+    default: "Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
+    template: "%s | dachdeckerjob.ch",
   },
   description:
-    "Finde aktuelle Elektro Jobs in der Schweiz. Stellen für Elektroinstallateur EFZ, Montage-Elektriker, Servicetechniker & mehr. Jetzt Lebenslauf einreichen.",
+    "Finde aktuelle Dachdecker Jobs in der Schweiz. Stellen für Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer & mehr. Jetzt Lebenslauf einreichen.",
   keywords: [
-    "Elektrojobs",
-    "Elektrojobs Schweiz",
-    "Elektroinstallateur Jobs",
-    "Montage-Elektriker Jobs",
-    "Projektleiter Elektro",
-    "Automatiker Jobs",
-    "Elektroplaner Jobs",
-    "Elektromonteur",
-    "Gebäudetechnik Jobs",
-    "Photovoltaik Jobs Schweiz",
-    "Servicetechniker Elektro",
-    "Schaltanlagenbauer",
-    "Bauleiter Elektro",
-    "Betriebselektriker",
-    "Stellen Elektrobranche Schweiz",
+    "Dachdeckerjobs",
+    "Dachdeckerjobs Schweiz",
+    "Dachdecker EFZ Jobs",
+    "Abdichter Jobs",
+    "Spengler EFZ Jobs",
+    "Fassadenbauer Jobs",
+    "Dachdeckerpolier",
+    "Bauführer Dachdecker",
+    "Flachdach Jobs",
+    "Steildach Jobs",
+    "Dachsanierung Jobs",
+    "Bauspengler Jobs",
+    "Zimmermann Dach",
+    "Gebäudehülle Jobs Schweiz",
+    "Stellen Dachdeckerbranche Schweiz",
   ],
   openGraph: {
-    title: "Elektro Jobs Schweiz 2026 | Offene Stellen finden",
+    title: "Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
     description:
-      "Finde aktuelle Elektro Jobs in der Schweiz. Stellen für Elektroinstallateur EFZ, Montage-Elektriker, Servicetechniker & mehr. Jetzt Lebenslauf einreichen.",
+      "Finde aktuelle Dachdecker Jobs in der Schweiz. Stellen für Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer & mehr. Jetzt Lebenslauf einreichen.",
     type: "website",
     url: "/",
-    siteName: "elektrojob.ch",
+    siteName: "dachdeckerjob.ch",
     locale: "de_CH",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Elektro Jobs Schweiz 2026 | Offene Stellen finden",
+    title: "Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
     description:
-      "Finde aktuelle Elektro Jobs in der Schweiz. Stellen für Elektroinstallateur EFZ, Montage-Elektriker, Servicetechniker & mehr. Jetzt Lebenslauf einreichen.",
+      "Finde aktuelle Dachdecker Jobs in der Schweiz. Stellen für Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer & mehr. Jetzt Lebenslauf einreichen.",
   },
   alternates: {
     canonical: "/",
@@ -72,15 +72,14 @@ export const metadata: Metadata = {
   },
 };
 
-// SEO-DECISION: Organization schema placed in root layout so it appears on every page
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "elektrojob.ch",
+  name: "dachdeckerjob.ch",
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
   description:
-    "elektrojob.ch ist die spezialisierte Jobbörse für Elektro-Fachkräfte in der Schweiz. Finde offene Stellen als Elektroinstallateur, Montage-Elektriker, Projektleiter Elektro und mehr.",
+    "dachdeckerjob.ch ist die spezialisierte Jobbörse für Dachdecker-Fachkräfte in der Schweiz. Finde offene Stellen als Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer und mehr.",
   foundingDate: "2025",
   areaServed: {
     "@type": "Country",
@@ -94,22 +93,21 @@ const organizationSchema = {
     url: `${SITE_URL}/`,
   },
   sameAs: [
-    "https://www.youtube.com/@elektrojob",
-    "https://www.facebook.com/elektrojob",
-    "https://www.instagram.com/elektrojob",
-    "https://www.linkedin.com/company/elektrojob",
-    "https://twitter.com/elektrojob",
+    "https://www.youtube.com/@dachdeckerjob",
+    "https://www.facebook.com/dachdeckerjob",
+    "https://www.instagram.com/dachdeckerjob",
+    "https://www.linkedin.com/company/dachdeckerjob",
+    "https://twitter.com/dachdeckerjob",
   ],
 };
 
-// SEO-DECISION: WebSite schema with SearchAction enables the Google sitelinks search box
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "elektrojob.ch",
+  name: "dachdeckerjob.ch",
   url: SITE_URL,
   description:
-    "Die spezialisierte Jobbörse für Elektro-Fachkräfte in der Schweiz.",
+    "Die spezialisierte Jobbörse für Dachdecker-Fachkräfte in der Schweiz.",
   inLanguage: "de",
   potentialAction: {
     "@type": "SearchAction",
@@ -121,11 +119,10 @@ const websiteSchema = {
   },
 };
 
-// SEO-DECISION: LocalBusiness schema to improve visibility for local search intent
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "elektrojob.ch",
+  name: "dachdeckerjob.ch",
   image: `${SITE_URL}/logo.png`,
   url: SITE_URL,
   telephone: "",

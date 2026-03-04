@@ -17,23 +17,23 @@ export interface Job {
 export const mockJobs: Job[] = [
   {
     id: "1",
-    title: "Elektroinstallateur EFZ (m/w/d)",
-    company: "VoltTech AG",
+    title: "Dachdecker EFZ (m/w/d)",
+    company: "Alpin Bedachungen AG",
     location: "Zürich, ZH",
     type: "Full-time",
     workload: "100%",
-    description: "Wir suchen einen engagierten Elektroinstallateur für spannende Neubau- und Umbauprojekte im Raum Zürich.",
+    description: "Wir suchen einen engagierten Dachdecker für spannende Neubau- und Sanierungsprojekte im Raum Zürich.",
     responsibilities: [
-      "Ausführung von Stark- und Schwachstrominstallationen",
-      "Inbetriebnahme und Prüfung von elektrischen Anlagen",
-      "Planlesen und selbständige Umsetzung auf der Baustelle",
+      "Ausführung von Flach- und Steildacharbeiten",
+      "Verlegung von Dachziegeln, Schiefer und Bitumenbahnen",
+      "Montage und Abdichtung von Dachfenstern und Durchdringungen",
       "Dokumentation der ausgeführten Arbeiten"
     ],
     requirements: [
-      "Abgeschlossene Lehre als Elektroinstallateur EFZ",
+      "Abgeschlossene Lehre als Dachdecker EFZ",
       "Einige Jahre Berufserfahrung von Vorteil",
       "Gute Deutschkenntnisse",
-      "Führerausweis Kategorie B"
+      "Höhentauglichkeit und Führerausweis Kategorie B"
     ],
     benefits: [
       "Überdurchschnittliches Gehalt",
@@ -46,20 +46,20 @@ export const mockJobs: Job[] = [
   },
   {
     id: "2",
-    title: "Montage-Elektriker EFZ",
-    company: "Licht & Kraft GmbH",
+    title: "Abdichter EFZ",
+    company: "Swiss Dachtechnik GmbH",
     location: "Bern, BE",
     type: "Full-time",
     workload: "80-100%",
-    description: "Unterstützen Sie unser Team bei der Umsetzung von modernen Elektroinstallationen in Wohn- und Gewerbebauten.",
+    description: "Unterstützen Sie unser Team bei der Ausführung von Abdichtungsarbeiten an Flachdächern und Balkonen.",
     responsibilities: [
-      "Rohbaueinlagen und Kabelzug",
-      "Montage von Schaltern und Steckdosen",
-      "Mithilfe bei der Gebäudeautomation",
-      "Allgemeine elektrische Montagearbeiten"
+      "Ausführung von Bitumen- und Kunststoffabdichtungen",
+      "Montage von Wärmedämmungen unter Abdichtungen",
+      "Einbau von Dachentwässerungssystemen",
+      "Allgemeine Flachdacharbeiten"
     ],
     requirements: [
-      "Abgeschlossene Ausbildung als Montage-Elektriker EFZ",
+      "Abgeschlossene Ausbildung als Abdichter EFZ",
       "Handwerkliches Geschick und Zuverlässigkeit",
       "Teamfähigkeit und genaue Arbeitsweise"
     ],
@@ -72,22 +72,22 @@ export const mockJobs: Job[] = [
   },
   {
     id: "3",
-    title: "Projektleiter Elektro (w/m)",
-    company: "SmartHome Systems SA",
+    title: "Bauführer Dachdecker (w/m)",
+    company: "Helvetia Gebäudehülle AG",
     location: "Basel, BS",
     type: "Full-time",
     workload: "100%",
-    description: "Leiten Sie innovative Smart-Home- und Gewerbeprojekte von der Planung bis zur Übergabe.",
+    description: "Leiten Sie anspruchsvolle Dach- und Fassadenprojekte von der Planung bis zur Übergabe.",
     responsibilities: [
       "Projektleitung von A bis Z inklusive Kostenkontrolle",
       "Kundenberatung und Offertenerstellung",
-      "Führung der Montageequipen",
+      "Führung der Montageequipen auf der Baustelle",
       "Qualitätssicherung und Abnahme"
     ],
     requirements: [
-      "Weiterbildung zum Elektro-Sicherheitsberater oder Elektro-Projektleiter",
+      "Weiterbildung zum Dachdeckerpolier oder Bauführer",
       "Führungserfahrung in einer ähnlichen Position",
-      "Kenntnisse in Gebäudeautomation (KNX/DALI)",
+      "Kenntnisse in Flach- und Steildachtechnik",
       "Verhandlungsgeschick und souveränes Auftreten"
     ],
     benefits: [
@@ -100,48 +100,48 @@ export const mockJobs: Job[] = [
   },
   {
     id: "4",
-    title: "Automatiker EFZ / Schaltanlagenbauer",
-    company: "ControlSys Group",
-    location: "Luzern, BL",
+    title: "Spengler EFZ / Bauspengler",
+    company: "Rhein Spenglerei GmbH",
+    location: "Luzern, LU",
     type: "Full-time",
     workload: "100%",
-    description: "Sie bauen und verdrahten Schaltgerätekombinationen und Steuerungen für die Industrie.",
+    description: "Sie fertigen und montieren Blechverkleidungen sowie Entwässerungssysteme für Dach und Fassade.",
     responsibilities: [
-      "Aufbau und Verdrahtung von Steuer- und Schaltanlagen",
-      "Prüfung der fertigen Anlagen nach Schema",
-      "Fehlersuche und Behebung",
-      "Mithilfe bei Inbetriebnahmen"
+      "Anfertigung und Montage von Blechverkleidungen",
+      "Einbau von Dachrinnen und Fallrohren",
+      "Ausführung von Fassadenblecharbeiten",
+      "Mithilfe bei Dachsanierungen"
     ],
     requirements: [
-      "Berufsabschluss als Automatiker EFZ oder Schaltanlagenmonteur",
-      "Exaktes Lesen von Elektroschemata",
-      "Selbständige und präzise Arbeitsweise"
+      "Berufsabschluss als Spengler EFZ oder Bauspengler",
+      "Präzises Arbeiten mit Blech und Metallprofilen",
+      "Selbständige und sorgfältige Arbeitsweise"
     ],
     benefits: [
-      "Moderne Werkstatt",
-      "Geregelte Arbeitszeiten ohne Schichtbetrieb",
+      "Moderne Werkstatt und Maschinen",
+      "Geregelte Arbeitszeiten",
       "Gute Anbindung an den ÖV"
     ],
     datePosted: "2026-02-18",
   },
   {
     id: "5",
-    title: "Servicetechniker Elektro",
-    company: "ElectroService 24",
-    location: "St. Gallen, LU",
+    title: "Dachdecker EFZ - Unterhalt & Service",
+    company: "Dach Partner AG",
+    location: "St. Gallen, SG",
     type: "Part-time",
     workload: "60-80%",
-    description: "Als Servicetechniker lösen Sie elektrische Störungen direkt bei unseren Kunden vor Ort.",
+    description: "Als Dachdecker im Servicebereich führen Sie Unterhaltsarbeiten und Reparaturen direkt bei unseren Kunden durch.",
     responsibilities: [
-      "Behebung von elektrischen Störungen bei Privat- und Geschäftskunden",
-      "Kleinere Installationsanpassungen und Erweiterungen",
-      "Ausführung von Piketteinsätzen (ca. 1x im Monat)",
+      "Ausführung von Dachreparaturen bei Privat- und Gewerbekunden",
+      "Kleinere Abdichtungsarbeiten und Ausbesserungen",
+      "Reinigung und Kontrolle von Dachentwässerungen",
       "Kundenberatung vor Ort"
     ],
     requirements: [
-      "Ausbildung als Elektroinstallateur EFZ",
+      "Ausbildung als Dachdecker EFZ",
       "Freude am Kundenkontakt und gepflegtes Auftreten",
-      "Lösungsorientierte Denkweise",
+      "Schwindel- und höhentauglich",
       "Gültiger Fahrausweis"
     ],
     benefits: [

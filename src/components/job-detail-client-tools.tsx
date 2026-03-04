@@ -9,7 +9,7 @@ import type { JobListing } from "@/lib/job-types";
 import { trackEvent } from "@/lib/analytics";
 import { useHaptic } from "@/hooks/use-haptic";
 
-const RECENT_KEY = "elektrojob:recent-jobs";
+const RECENT_KEY = "dachdeckerjob:recent-jobs";
 
 interface RecentJobEntry {
   id: string;

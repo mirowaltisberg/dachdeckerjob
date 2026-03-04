@@ -37,18 +37,18 @@ const MobileFilterBar = dynamic(() => import("./mobile-filter-bar"), {
 });
 
 const JOB_SUGGESTIONS = [
-  "Elektroinstallateur",
-  "Montage-Elektriker",
-  "Servicetechniker",
-  "Projektleiter Elektro",
-  "Automatiker",
-  "Elektroplaner",
-  "Elektromonteur",
-  "Gebäudetechnik",
-  "Photovoltaik",
-  "Schaltanlagenbauer",
-  "Bauleiter Elektro",
-  "Betriebselektriker",
+  "Dachdecker",
+  "Abdichter",
+  "Spengler",
+  "Fassadenbauer",
+  "Dachdeckerpolier",
+  "Bauführer Dachdecker",
+  "Flachdachspezialist",
+  "Zimmermann",
+  "Bauspengler",
+  "Dachsanierer",
+  "Gerüstbauer",
+  "Steildachspezialist",
 ];
 
 const LOCATION_SUGGESTIONS = [
@@ -679,7 +679,7 @@ export function HomepageSearch({ initialData }: HomepageSearchProps) {
       <header className="border-b header-blur sticky top-0 z-30 animate-header">
         <div className="container mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
           <Link href="/" className="flex items-center shrink-0" onClick={resetToHome}>
-            <Image src="/logo.svg" alt="elektrojob.ch — Elektrojobs in der Schweiz" width={142} height={29} className="h-7 sm:h-8 w-auto" priority />
+            <Image src="/logo.svg" alt="dachdeckerjob.ch — Dachdeckerjobs in der Schweiz" width={142} height={29} className="h-7 sm:h-8 w-auto" priority />
           </Link>
           <nav className="flex items-center gap-1 sm:gap-2 shrink-0">
             <HeaderDropdownMenu
@@ -710,11 +710,11 @@ export function HomepageSearch({ initialData }: HomepageSearchProps) {
         >
           <div className="container mx-auto px-4 sm:px-6 text-center">
             <h1 className="animate-hero-title text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-4 sm:mb-6 tracking-tight leading-tight">
-              <span className="text-primary">Elektro Jobs</span> Schweiz
+              <span className="text-primary">Dachdecker Jobs</span> Schweiz
               <span className="block text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-700 mt-2 sm:mt-4">Alle offenen Stellen</span>
             </h1>
             <p className="animate-hero-subtitle text-base sm:text-lg text-slate-600 mb-8 sm:mb-10 max-w-2xl mx-auto px-1">
-              Live-Stellen mit smarter Filterung für Elektro-Fachkräfte in der ganzen Schweiz. Finde den perfekten Job (Vollzeit / Teilzeit Pensum).
+              Live-Stellen mit smarter Filterung für Dachdecker-Fachkräfte in der ganzen Schweiz. Finde den perfekten Job (Vollzeit / Teilzeit Pensum).
             </p>
 
             <form
@@ -796,7 +796,7 @@ export function HomepageSearch({ initialData }: HomepageSearchProps) {
             <AnimateOnScroll className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
               <div>
                 <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-                  {hasSearched ? "Suchergebnisse" : "Aktuelle Elektrojobs (Vollzeit/Teilzeit Pensum)"}
+                  {hasSearched ? "Suchergebnisse" : "Aktuelle Dachdeckerjobs (Vollzeit/Teilzeit Pensum)"}
                 </h2>
                 {hasActiveLocation && (
                   <p className="text-xs text-slate-500 mt-1">

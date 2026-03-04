@@ -1,6 +1,6 @@
 import type { GeneratedJob, SearchContext } from "@/lib/job-types";
 
-const DEFAULT_QUERY = "Elektroinstallateur";
+const DEFAULT_QUERY = "Dachdecker";
 const DEFAULT_LOCATION = "Schweiz";
 const DEFAULT_COUNT = 150;
 const MAX_COUNT = 500;
@@ -10,56 +10,56 @@ const GENERATED_ID_PATTERN = /^gen-([0-9a-f]+)-(\d+)$/i;
 const SWISS_PLZ_PATTERN = /\b(\d{4})\b/;
 
 const ROLE_TEMPLATES = [
-  "Elektroinstallateur EFZ",
-  "Montage-Elektriker EFZ",
-  "Servicetechniker Elektro",
-  "Projektleiter Elektro",
-  "Automatiker EFZ",
-  "Elektroplaner",
-  "Bauleitender Elektroinstallateur",
-  "Fachmann Gebäudeautomation",
-  "Elektro-Sicherheitsberater",
-  "Inbetriebnahme-Techniker",
+  "Dachdecker EFZ",
+  "Abdichter EFZ",
+  "Spengler EFZ",
+  "Fassadenbauer EFZ",
+  "Dachdeckerpolier",
+  "Bauführer Dachdecker",
+  "Flachdachspezialist",
+  "Zimmermann",
+  "Bauspengler",
+  "Dachdeckermeister",
 ];
 
 const SPECIALIZATIONS = [
+  "Flachdach",
+  "Steildach",
+  "Gebäudehülle",
+  "Bedachung",
+  "Abdichtung",
+  "Fassadenbau",
+  "Photovoltaik-Montage",
+  "Dachsanierung",
   "Neubau",
-  "Umbau",
-  "Service",
-  "Industrie",
-  "Smart Building",
-  "Gebäudeautomation",
-  "Photovoltaik",
-  "Ladelösungen",
-  "Netzwerktechnik",
-  "Sicherheitsanlagen",
+  "Unterhalt",
 ];
 
 const COMPANY_PREFIXES = [
-  "Volt",
-  "Lumen",
   "Alpin",
-  "Strom",
-  "Helio",
-  "Kraft",
-  "Nova",
   "Swiss",
   "Aare",
   "Rhein",
-  "Zenit",
-  "Puls",
+  "Berner",
+  "Zürcher",
+  "Helvetia",
+  "Berg",
+  "Dach",
+  "Nova",
+  "First",
+  "Gipfel",
 ];
 
 const COMPANY_SUFFIXES = [
-  "Tech AG",
-  "Elektro GmbH",
-  "Systems AG",
-  "Service AG",
-  "Solutions GmbH",
-  "Engineering AG",
-  "Installationen AG",
-  "Infra GmbH",
+  "Dachdecker GmbH",
+  "Bedachungen AG",
+  "Bedachungen GmbH",
+  "Dachtechnik AG",
+  "Gebäudehülle AG",
+  "Spenglerei GmbH",
+  "Bau AG",
   "Partner AG",
+  "Dach + Fassade GmbH",
 ];
 
 const CONTRACT_TYPES = ["Vollzeit", "Teilzeit", "Festanstellung", "Temporär", "Unbefristet"];
@@ -68,39 +68,39 @@ const WORKLOADS = ["60-80%", "80-100%", "90-100%", "100%"];
 const PROJECT_TYPES = [
   "Wohnbauprojekten",
   "Gewerbeobjekten",
-  "Industrieanlagen",
-  "Smart-Home-Lösungen",
-  "Infrastrukturprojekten",
-  "Serviceeinsätzen",
+  "Flachdachsanierungen",
+  "Steildachprojekten",
+  "Fassadenbauprojekten",
+  "Dachsanierungen",
 ];
 
 const RESPONSIBILITY_TEMPLATES = [
-  "Ausführung von Stark- und Schwachstrominstallationen.",
-  "Inbetriebnahme und Prüfung elektrischer Anlagen.",
-  "Montage von Schaltern, Verteilungen und Leuchten.",
-  "Fehlersuche und Störungsbehebung beim Kunden.",
+  "Ausführung von Flach- und Steildacharbeiten.",
+  "Verlegung von Dachziegeln, Schiefer und Bitumenbahnen.",
+  "Montage und Abdichtung von Dachfenstern und Durchdringungen.",
+  "Ausführung von Spenglerarbeiten und Blechverkleidungen.",
   "Dokumentation der ausgeführten Arbeiten.",
   "Zusammenarbeit mit Bauleitung und Projektleitung.",
   "Einhaltung von Sicherheits- und Qualitätsstandards.",
   "Mithilfe bei Materialdisposition und AVOR.",
-  "Durchführung von Wartungs- und Servicearbeiten.",
+  "Durchführung von Wartungs- und Unterhaltsarbeiten.",
   "Begleitung von Abnahmen und Übergaben.",
-  "Verdrahtung von Steuerungen und Schaltanlagen.",
+  "Montage von Unterdächern und Wärmedämmungen.",
   "Mitarbeit bei Optimierung von Montageabläufen.",
 ];
 
 const REQUIREMENT_TEMPLATES = [
-  "Abgeschlossene Ausbildung im Elektrobereich (EFZ oder gleichwertig).",
+  "Abgeschlossene Ausbildung im Dachdeckerbereich (EFZ oder gleichwertig).",
   "Sorgfältige und selbstständige Arbeitsweise.",
   "Teamfähigkeit und klare Kommunikation auf Deutsch.",
-  "Erfahrung in Neu- und Umbauprojekten von Vorteil.",
-  "Sicherer Umgang mit Schema- und Planunterlagen.",
+  "Erfahrung in Neu- und Sanierungsprojekten von Vorteil.",
+  "Sicherer Umgang mit Plänen und technischen Unterlagen.",
   "Fahrausweis Kategorie B oder Bereitschaft dazu.",
   "Zuverlässigkeit und hohes Verantwortungsbewusstsein.",
-  "Freude an direktem Kundenkontakt.",
+  "Schwindel- und höhentauglich.",
   "Gute Kenntnisse der Schweizer Normen und Vorschriften.",
   "Bereitschaft zur fachlichen Weiterbildung.",
-  "Lösungsorientiertes Denken auch unter Zeitdruck.",
+  "Körperliche Belastbarkeit und handwerkliches Geschick.",
   "Sauberes und professionelles Auftreten.",
 ];
 
@@ -251,7 +251,7 @@ function buildGeneratedJob(
   const projectType = pick(rng, PROJECT_TYPES);
   const focusText = primaryFocus
     ? `mit Fokus auf ${primaryFocus}${secondaryFocus ? ` und ${secondaryFocus}` : ""}`
-    : "mit Fokus auf moderne Elektroprojekte";
+    : "mit Fokus auf moderne Dachdeckerprojekte";
   const regionText = hasLocationHint
     ? `im Raum ${context.location}`
     : `in ${swissLocation.city}`;

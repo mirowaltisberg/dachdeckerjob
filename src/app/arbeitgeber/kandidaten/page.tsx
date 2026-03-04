@@ -7,7 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 export const metadata: Metadata = {
   title: "Kandidatenzugang",
   description:
-    "Erhalten Sie Zugang zum Kandidatenpool von elektrojob.ch — qualifizierte Elektro-Fachkräfte in der Schweiz.",
+    "Erhalten Sie Zugang zum Kandidatenpool von dachdeckerjob.ch — qualifizierte Dachdecker-Fachkräfte in der Schweiz.",
 };
 
 export default function KandidatenPage() {
@@ -18,7 +18,7 @@ export default function KandidatenPage() {
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo.svg"
-              alt="elektrojob.ch"
+              alt="dachdeckerjob.ch"
               width={142}
               height={29}
               className="h-7 sm:h-8 w-auto"
@@ -33,8 +33,8 @@ export default function KandidatenPage() {
           Kandidatenzugang
         </h1>
         <p className="text-slate-600 mb-6 leading-relaxed">
-          Mit dem Kandidatenzugang von elektrojob.ch finden Sie qualifizierte
-          Elektro-Fachkräfte in der ganzen Schweiz. Dieser Service befindet sich
+          Mit dem Kandidatenzugang von dachdeckerjob.ch finden Sie qualifizierte
+          Dachdecker-Fachkräfte in der ganzen Schweiz. Dieser Service befindet sich
           derzeit im Aufbau.
         </p>
         <div className="rounded-xl border border-slate-200 bg-white p-6">
@@ -42,7 +42,7 @@ export default function KandidatenPage() {
             Kontaktieren Sie uns für weitere Informationen:
           </p>
           <Button asChild className="w-full">
-            <a href="mailto:info@elektrojob.ch">info@elektrojob.ch kontaktieren</a>
+            <a href="mailto:info@dachdeckerjob.ch">info@dachdeckerjob.ch kontaktieren</a>
           </Button>
         </div>
         <div className="mt-6 text-center">
