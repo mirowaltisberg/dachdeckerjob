@@ -185,28 +185,63 @@ def clean_description(description: str) -> str:
 # ── Relevance filter ──────────────────────────────────────────────────────────
 
 RELEVANT_TITLE_KEYWORDS = [
-    # Core roofing trades
-    "dachdeck", "dach", "roof",
-    "abdicht", "flachdach", "steildach",
-    "spengler", "bauspengler", "blechnerei",
-    "fassadenbau", "fassade",
-    # Materials & specializations
-    "ziegel", "schiefer", "bitumen",
-    "dachsanier", "dachsanierung",
-    "gebäudehülle", "gebaeudehuelle",
-    "isolier", "wärmedämm", "waermedaemm",
-    # Related trades
-    "zimmermann", "zimmer", "holzbau",
-    "gerüstbau", "geruestbau", "gerüstmonteur",
-    # Roles
-    "polier", "bauführer dach", "baufuehrer dach",
-    "monteur", "fachmann", "fachfrau", "fachperson",
-    "dachrinne", "entwässerung",
-    "blitzschutz", "schneefang",
-    # Broader
-    "bedachung", "eindeckung",
-    "kupfer", "zink", "blech",
-    "flach", "steil",
+    "dachdeck",
+    "dach",
+    "roof",
+    "abdicht",
+    "flachdach",
+    "steildach",
+    "spengler",
+    "bauspengler",
+    "blechnerei",
+    "fassadenbau",
+    "fassade",
+    "fassadenmonteur",
+    "ziegel",
+    "schiefer",
+    "bitumen",
+    "dachsanier",
+    "dachsanierung",
+    "gebäudehülle",
+    "gebaeudehuelle",
+    "isolier",
+    "wärmedämm",
+    "waermedaemm",
+    "isolation",
+    "zimmermann",
+    "zimmer",
+    "holzbau",
+    "gerüstbau",
+    "geruestbau",
+    "gerüstmonteur",
+    "polier",
+    "vorarbeiter",
+    "bauführer",
+    "baufuehrer",
+    "bauleiter",
+    "projektleiter",
+    "planer",
+    "monteur",
+    "montage",
+    "fachmann",
+    "fachfrau",
+    "fachperson",
+    "techniker",
+    "dachrinne",
+    "entwässerung",
+    "blitzschutz",
+    "schneefang",
+    "bedachung",
+    "eindeckung",
+    "kupfer",
+    "zink",
+    "blech",
+    "titan",
+    "polybau",
+    "polybauer",
+    "dachfenster",
+    "dachbegrün",
+    "handwerker",
 ]
 
 REJECT_TITLE_KEYWORDS = [
@@ -328,6 +363,23 @@ DEFAULT_SEARCH_TERMS = [
     "Dachdeckermeister",
     "Gebäudehülle",
     "Bedachung",
+    "Dachdecker EFZ",
+    "Spengler EFZ",
+    "Abdichter EFZ",
+    "Polybauer",
+    "Fassadenmonteur",
+    "Isolierspengler",
+    "Blechnerei",
+    "Dachfenster Monteur",
+    "Monteur Gebäudehülle",
+    "Vorarbeiter Dachdecker",
+    "Bauleiter Gebäudehülle",
+    "Projektleiter Dach",
+    "Dachbegrünung",
+    "Wärmedämmung",
+    "Gebäudeisolation",
+    "Zimmermann",
+    "Holzbau Dach",
 ]
 
 DEFAULT_LOCATIONS = [
@@ -343,6 +395,14 @@ DEFAULT_LOCATIONS = [
     "Lugano, Schweiz",
     "Chur, Schweiz",
     "Sion, Schweiz",
+    "Olten, Schweiz",
+    "Thun, Schweiz",
+    "Frauenfeld, Schweiz",
+    "Zug, Schweiz",
+    "Schaffhausen, Schweiz",
+    "Solothurn, Schweiz",
+    "Rapperswil, Schweiz",
+    "Baden, Schweiz",
 ]
 
 
@@ -627,7 +687,7 @@ def main():
     parser = argparse.ArgumentParser(description="Scrape Swiss roofing jobs")
     parser.add_argument("--query", type=str, help="Single search query")
     parser.add_argument("--location", type=str, help="Single location")
-    parser.add_argument("--results", type=int, default=100, help="Results per query/location combo")
+    parser.add_argument("--results", type=int, default=50, help="Results per query/location combo")
     parser.add_argument("--quick", action="store_true", help="Quick mode: single query only")
     parser.add_argument("--chunk", type=int, default=0, help="Chunk index (0-based) for splitting search terms")
     parser.add_argument("--total-chunks", type=int, default=1, help="Total number of chunks to split search terms into")
