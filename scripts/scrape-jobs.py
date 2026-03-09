@@ -500,7 +500,7 @@ def normalize_job(raw: dict, idx: int) -> dict | None:
     is_remote = bool(is_remote_val) if is_remote_val is not None and not (isinstance(is_remote_val, float) and math.isnan(is_remote_val)) else False
 
     url_hash = hashlib.md5(job_url.encode()).hexdigest()[:12]
-    stable_id = f"scraped-{url_hash}"
+    stable_id = f"scraped-dachdecker-{url_hash}"
 
     return {
         "id": stable_id,
@@ -670,7 +670,7 @@ def load_existing_jobs() -> tuple[list[dict], set[str]]:
                 if url and url not in seen_urls:
                     seen_urls.add(url)
                     url_hash = hashlib.md5(url.encode()).hexdigest()[:12]
-                    job["id"] = f"scraped-{url_hash}"
+                    job["id"] = f"scraped-dachdecker-{url_hash}"
                     all_raw.append({
                         "_already_normalized": True,
                         "_job": job,
