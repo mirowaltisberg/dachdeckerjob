@@ -577,7 +577,7 @@ def sync_to_supabase(normalized: list[dict], scraped_at: str):
             inserted += len(batch)
         except Exception as e:
             print(f"    ⚠ Supabase upsert error (batch {i}): {e}")
-            return
+            continue
 
     try:
         sb.table("scrape_metadata").update({
