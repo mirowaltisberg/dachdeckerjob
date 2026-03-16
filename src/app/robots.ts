@@ -7,18 +7,11 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: ["/", "/jobs/", "/dachdeckerjobs/"],
+        allow: ["/"],
         disallow: [
           "/api/",
-          "/*?*sort=",
-          "/*?*type=",
-          "/*?*workload=",
-          "/*?*remote=",
-          "/*?*postedWithinDays=",
-          "/*?*offset=",
-          "/*?*q=",
-          "/*?*loc=",
-          "/*?*radiusKm=",
+          "/arbeitgeber/login",
+          "/arbeitgeber/kandidaten",
         ],
       },
     ],
