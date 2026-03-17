@@ -6,13 +6,13 @@ import { JsonLd } from "@/components/json-ld";
 // This content is always visible to search engines even though the
 // main job search is client-rendered.
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://dachdeckerjob.ch";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://dachdeckerjobs.ch";
 
 const HOMEPAGE_FAQS = [
   {
-    question: "Welche Dachdeckerjobs gibt es auf dachdeckerjob.ch?",
+    question: "Welche Dachdeckerjobs gibt es auf dachdeckerjobs.ch?",
     answer:
-      "Auf dachdeckerjob.ch findest du offene Stellen für Dachdecker EFZ, Abdichter EFZ, Spengler EFZ, Flachdachspezialisten, Steildachspezialisten, Dachdeckerpoliere, Bauführer Dachdecker, Zimmermänner, Bauspengler, Dachsanierer, Fassadenbauer EFZ und Gerüstbauer — in der ganzen Schweiz.",
+      "Auf dachdeckerjobs.ch findest du offene Stellen für Dachdecker EFZ, Abdichter EFZ, Spengler EFZ, Flachdachspezialisten, Steildachspezialisten, Dachdeckerpoliere, Bauführer Dachdecker, Zimmermänner, Bauspengler, Dachsanierer, Fassadenbauer EFZ und Gerüstbauer — in der ganzen Schweiz.",
   },
   {
     question: "Was verdient ein Dachdecker EFZ in der Schweiz?",
@@ -32,12 +32,12 @@ const HOMEPAGE_FAQS = [
   {
     question: "Wie finde ich einen Job als Dachdecker in der Schweiz?",
     answer:
-      "Auf dachdeckerjob.ch kannst du gezielt nach Dachdeckerjobs in deiner Region suchen. Nutze die Filteroptionen nach Beruf, Kanton, Pensum und Umkreis. Du kannst dich direkt über die Plattform bewerben — einfach Lebenslauf hochladen und abschicken. Die Plattform ist auf Berufe rund um die Gebäudehülle spezialisiert.",
+      "Auf dachdeckerjobs.ch kannst du gezielt nach Dachdeckerjobs in deiner Region suchen. Nutze die Filteroptionen nach Beruf, Kanton, Pensum und Umkreis. Du kannst dich direkt über die Plattform bewerben — einfach Lebenslauf hochladen und abschicken. Die Plattform ist auf Berufe rund um die Gebäudehülle spezialisiert.",
   },
   {
-    question: "Gibt es auf dachdeckerjob.ch auch Teilzeitstellen für Dachdecker?",
+    question: "Gibt es auf dachdeckerjobs.ch auch Teilzeitstellen für Dachdecker?",
     answer:
-      "Ja, auf dachdeckerjob.ch findest du sowohl Vollzeit- als auch Teilzeitstellen. Nutze den Pensum-Filter, um Stellen mit 60–80% oder 80–100% Arbeitspensum zu finden. Teilzeitstellen sind in der Dachdeckerbranche seltener als in anderen Berufen, aber besonders für erfahrene Fachkräfte und Poliere vorhanden.",
+      "Ja, auf dachdeckerjobs.ch findest du sowohl Vollzeit- als auch Teilzeitstellen. Nutze den Pensum-Filter, um Stellen mit 60–80% oder 80–100% Arbeitspensum zu finden. Teilzeitstellen sind in der Dachdeckerbranche seltener als in anderen Berufen, aber besonders für erfahrene Fachkräfte und Poliere vorhanden.",
   },
 ];
 
@@ -86,7 +86,7 @@ export function HomepageSeoContent() {
             Dachdeckerjobs in der Schweiz finden
           </h2>
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-4">
-            Auf dachdeckerjob.ch finden Dachdecker-Fachkräfte aktuelle offene Stellen in der ganzen Schweiz
+            Auf dachdeckerjobs.ch finden Dachdecker-Fachkräfte aktuelle offene Stellen in der ganzen Schweiz
             — von Dachdecker EFZ über Abdichter und Spengler bis hin zu
             Flachdachspezialisten, Dachdeckerpolieren und Bauführern. Ob du deinen nächsten Dachdeckerjob
             in Zürich, Bern oder Basel suchst — unsere spezialisierte Jobbörse

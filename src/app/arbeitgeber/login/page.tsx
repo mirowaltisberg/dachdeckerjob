@@ -7,7 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 export const metadata: Metadata = {
   title: "Arbeitgeber-Login",
   description:
-    "Loggen Sie sich ein, um Ihre Stelleninserate auf dachdeckerjob.ch zu verwalten.",
+    "Loggen Sie sich ein, um Ihre Stelleninserate auf dachdeckerjobs.ch zu verwalten.",
   robots: {
     index: false,
     follow: true,
@@ -22,7 +22,7 @@ export default function ArbeitgeberLoginPage() {
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo.svg"
-              alt="dachdeckerjob.ch"
+              alt="dachdeckerjobs.ch"
               width={142}
               height={29}
               className="h-7 sm:h-8 w-auto"
@@ -37,7 +37,7 @@ export default function ArbeitgeberLoginPage() {
           Arbeitgeber-Login
         </h1>
         <p className="text-slate-600 mb-6 leading-relaxed">
-          Der Arbeitgeber-Bereich von dachdeckerjob.ch befindet sich im Aufbau.
+          Der Arbeitgeber-Bereich von dachdeckerjobs.ch befindet sich im Aufbau.
           Kontaktieren Sie uns, um Ihre Stellenangebote zu veröffentlichen.
         </p>
         <div className="rounded-xl border border-slate-200 bg-white p-6">
@@ -45,7 +45,7 @@ export default function ArbeitgeberLoginPage() {
             Schreiben Sie uns eine E-Mail, um Zugang zu erhalten:
           </p>
           <Button asChild className="w-full">
-            <a href="mailto:info@dachdeckerjob.ch">info@dachdeckerjob.ch kontaktieren</a>
+            <a href="mailto:info@dachdeckerjobs.ch">info@dachdeckerjobs.ch kontaktieren</a>
           </Button>
         </div>
         <div className="mt-6 text-center">

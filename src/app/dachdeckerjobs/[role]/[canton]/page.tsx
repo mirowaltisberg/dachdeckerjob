@@ -23,7 +23,7 @@ import { buildJobPostingSchema } from "@/lib/job-schema";
 
 export const revalidate = 3600;
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://dachdeckerjob.ch";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://dachdeckerjobs.ch";
 
 interface LandingPageProps {
   params: Promise<{ role: string; canton: string }>;
@@ -129,11 +129,11 @@ export async function generateMetadata({ params }: LandingPageProps): Promise<Me
       },
     },
     openGraph: {
-      title: `${config.title} | dachdeckerjob.ch`,
+      title: `${config.title} | dachdeckerjobs.ch`,
       description: config.description,
       url: getLandingPath(config),
       type: "website",
-      siteName: "dachdeckerjob.ch",
+      siteName: "dachdeckerjobs.ch",
       locale: "de_CH",
     },
   };
@@ -172,7 +172,7 @@ export default async function LandingRolePage({ params }: LandingPageProps) {
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo.svg"
-              alt="dachdeckerjob.ch — Dachdeckerjobs in der Schweiz"
+              alt="dachdeckerjobs.ch — Dachdeckerjobs in der Schweiz"
               width={142}
               height={29}
               className="h-7 sm:h-8 w-auto"

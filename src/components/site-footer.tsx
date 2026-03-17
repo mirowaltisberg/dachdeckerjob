@@ -34,7 +34,7 @@ export function SiteFooter() {
           <div>
             <Image
               src="/logo.svg"
-              alt="dachdeckerjob.ch — Jobbörse für Dachdecker-Fachkräfte in der Schweiz"
+              alt="dachdeckerjobs.ch — Jobbörse für Dachdecker-Fachkräfte in der Schweiz"
               width={170}
               height={29}
               className="h-8 w-auto brightness-0 invert mb-4"
@@ -148,7 +148,7 @@ export function SiteFooter() {
         {/* Bottom bar */}
         <div className="border-t border-slate-800 pt-6 mt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
           <div className="flex flex-col sm:flex-row items-center gap-3">
-            <p>&copy; {new Date().getFullYear()} dachdeckerjob.ch — Alle Rechte vorbehalten.</p>
+            <p>&copy; {new Date().getFullYear()} dachdeckerjobs.ch — Alle Rechte vorbehalten.</p>
             <nav aria-label="Rechtliches" className="flex items-center gap-4">
               <Link href="/impressum" className="hover:text-white transition-colors">Impressum</Link>
               <Link href="/datenschutz" className="hover:text-white transition-colors">Datenschutz</Link>

@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 export const metadata: Metadata = {
   title: "Allgemeine Geschäftsbedingungen",
   description:
-    "AGB von dachdeckerjob.ch — Allgemeine Geschäftsbedingungen für die Nutzung der Jobbörse.",
+    "AGB von dachdeckerjobs.ch — Allgemeine Geschäftsbedingungen für die Nutzung der Jobbörse.",
   alternates: {
     canonical: "/agb",
   },
@@ -20,7 +20,7 @@ export default function AGBPage() {
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo.svg"
-              alt="dachdeckerjob.ch"
+              alt="dachdeckerjobs.ch"
               width={142}
               height={29}
               className="h-7 sm:h-8 w-auto"
@@ -40,7 +40,7 @@ export default function AGBPage() {
             <h2 className="text-lg font-bold text-slate-900 mb-2">1. Geltungsbereich</h2>
             <p className="text-slate-600 leading-relaxed">
               Diese Allgemeinen Geschäftsbedingungen gelten für die Nutzung der Website
-              dachdeckerjob.ch, betrieben von der QERO AG, Ifangstrasse 91, 8153 Rümlang, Schweiz.
+              dachdeckerjobs.ch, betrieben von der QERO AG, Ifangstrasse 91, 8153 Rümlang, Schweiz.
               Mit der Nutzung dieser Website erklären Sie sich mit diesen AGB einverstanden.
             </p>
           </section>
@@ -48,7 +48,7 @@ export default function AGBPage() {
           <section>
             <h2 className="text-lg font-bold text-slate-900 mb-2">2. Leistungsbeschreibung</h2>
             <p className="text-slate-600 leading-relaxed">
-              dachdeckerjob.ch ist eine Online-Jobbörse, die Arbeitgebern die Möglichkeit bietet,
+              dachdeckerjobs.ch ist eine Online-Jobbörse, die Arbeitgebern die Möglichkeit bietet,
               Stelleninserate zu veröffentlichen, und Stellensuchenden ermöglicht, nach offenen
               Stellen zu suchen und sich direkt zu bewerben. Die Plattform erhebt keinen
               Anspruch auf Vollständigkeit der dargestellten Stellenangebote.

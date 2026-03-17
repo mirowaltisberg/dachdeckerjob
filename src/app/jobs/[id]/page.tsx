@@ -47,7 +47,7 @@ function getDisplayJobId(job: JobListing): string {
 
 export const revalidate = 3600;
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.dachdeckerjob.ch";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.dachdeckerjobs.ch";
 
 // SEO-DECISION: Map Swiss-German job type labels to schema.org employmentType values
 function mapEmploymentType(type: string): string | string[] {
@@ -151,7 +151,7 @@ function buildJobPostingSchema(job: JobListing): Record<string, any> {
     employmentType: mapEmploymentType(job.type),
     hiringOrganization: {
       "@type": "Organization",
-      name: job.company?.trim() || "Arbeitgeber auf dachdeckerjob.ch",
+      name: job.company?.trim() || "Arbeitgeber auf dachdeckerjobs.ch",
       ...(job.companyUrl ? { sameAs: job.companyUrl } : {}),
     },
     jobLocation: {
@@ -255,7 +255,7 @@ export async function generateMetadata(props: JobDetailsPageProps): Promise<Meta
 
   if (!job) {
     return {
-      title: "Stelle nicht gefunden | dachdeckerjob.ch",
+      title: "Stelle nicht gefunden | dachdeckerjobs.ch",
       description: "Die gewünschte Stelle konnte nicht gefunden werden.",
     };
   }
@@ -344,7 +344,7 @@ export default async function JobDetailsPage(props: JobDetailsPageProps) {
       <header className="border-b sticky top-0 z-30 header-blur animate-header">
         <div className="container mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
           <Link href="/" className="flex items-center shrink-0">
-            <Image src="/logo.svg" alt="dachdeckerjob.ch — Dachdeckerjobs in der Schweiz" width={142} height={29} className="h-7 sm:h-8 w-auto" priority />
+            <Image src="/logo.svg" alt="dachdeckerjobs.ch — Dachdeckerjobs in der Schweiz" width={142} height={29} className="h-7 sm:h-8 w-auto" priority />
           </Link>
           <nav className="shrink-0">
             <Button variant="ghost" size="sm" asChild className="text-sm px-2 sm:px-4 h-9 sm:h-10 btn-interactive">

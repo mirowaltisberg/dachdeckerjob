@@ -6,7 +6,7 @@ import { TOP_LANDING_PAGES, getLandingPath } from "@/lib/landing-pages";
 
 export const metadata: Metadata = {
   title: "Seite nicht gefunden",
-  description: "Die gewünschte Seite konnte nicht gefunden werden. Finde aktuelle Dachdeckerjobs auf dachdeckerjob.ch.",
+  description: "Die gewünschte Seite konnte nicht gefunden werden. Finde aktuelle Dachdeckerjobs auf dachdeckerjobs.ch.",
   robots: {
     index: false,
     follow: true,
@@ -21,7 +21,7 @@ export default function NotFound() {
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo.svg"
-              alt="dachdeckerjob.ch — Dachdeckerjobs in der Schweiz"
+              alt="dachdeckerjobs.ch — Dachdeckerjobs in der Schweiz"
               width={142}
               height={29}
               className="h-7 sm:h-8 w-auto"

@@ -1,7 +1,7 @@
 import type { JobListing } from "@/lib/job-types";
 import { estimateSalary } from "@/lib/salary-estimates";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.dachdeckerjob.ch";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.dachdeckerjobs.ch";
 
 function mapEmploymentType(type: string): string {
   const lower = type.toLowerCase();
@@ -42,7 +42,7 @@ export function buildJobPostingSchema(job: JobListing) {
     industry: "Dachdeckerei & Gebäudehülle",
     hiringOrganization: {
       "@type": "Organization",
-      name: job.company?.trim() || "Arbeitgeber auf dachdeckerjob.ch",
+      name: job.company?.trim() || "Arbeitgeber auf dachdeckerjobs.ch",
       ...(job.companyUrl ? { sameAs: job.companyUrl } : {}),
     },
     jobLocation: {

@@ -14,13 +14,13 @@ const plusJakarta = Plus_Jakarta_Sans({
   preload: true,
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.dachdeckerjob.ch";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.dachdeckerjobs.ch";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
-    template: "%s | dachdeckerjob.ch",
+    template: "%s | dachdeckerjobs.ch",
   },
   description:
     "Finde aktuelle Dachdecker Jobs in der Schweiz. Stellen für Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer & mehr. Jetzt Lebenslauf einreichen.",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
       "Finde aktuelle Dachdecker Jobs in der Schweiz. Stellen für Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer & mehr. Jetzt Lebenslauf einreichen.",
     type: "website",
     url: "/",
-    siteName: "dachdeckerjob.ch",
+    siteName: "dachdeckerjobs.ch",
     locale: "de_CH",
   },
   twitter: {
@@ -85,11 +85,11 @@ export const viewport: Viewport = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "dachdeckerjob.ch",
+  name: "dachdeckerjobs.ch",
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
   description:
-    "dachdeckerjob.ch ist die spezialisierte Jobbörse für Dachdecker-Fachkräfte in der Schweiz. Finde offene Stellen als Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer und mehr.",
+    "dachdeckerjobs.ch ist die spezialisierte Jobbörse für Dachdecker-Fachkräfte in der Schweiz. Finde offene Stellen als Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer und mehr.",
   foundingDate: "2025",
   areaServed: {
     "@type": "Country",
@@ -114,7 +114,7 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "dachdeckerjob.ch",
+  name: "dachdeckerjobs.ch",
   url: SITE_URL,
   description:
     "Die spezialisierte Jobbörse für Dachdecker-Fachkräfte in der Schweiz.",
@@ -132,7 +132,7 @@ const websiteSchema = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "dachdeckerjob.ch",
+  name: "dachdeckerjobs.ch",
   image: `${SITE_URL}/logo.png`,
   url: SITE_URL,
   telephone: "",
