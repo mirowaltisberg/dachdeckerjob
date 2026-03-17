@@ -40,9 +40,7 @@ const POSITIVE_KEYWORDS = [
   "dachdecker",
   "dachdeckerin",
   "abdichter",
-  "spengler",
   "fassadenbauer",
-  "zimmermann",
   "flachdach",
   "steildach",
   "gebäudehülle",
@@ -54,7 +52,6 @@ const POSITIVE_KEYWORDS = [
   "ziegeldeckung",
   "photovoltaik",
   "dachtechnik",
-  "bauspengler",
   "dachfenster",
   "monteur",
   "wartung",
@@ -84,16 +81,13 @@ const CORE_TITLE_KEYWORDS = [
   "dachdecker",
   "dachdeckerin",
   "abdichter",
-  "spengler",
   "fassadenbauer",
-  "zimmermann",
   "flachdach",
   "steildach",
   "gebäudehülle",
   "bedachung",
   "dachsanierung",
   "dachtechnik",
-  "bauspengler",
   "dachdeckerpolier",
   "dachdeckermeister",
   "bauführer",
@@ -140,6 +134,70 @@ const HARD_NEGATIVE_TITLE_KEYWORDS = [
   "data",
   "hr",
   "human resources",
+];
+
+/** Keywords that uniquely identify THIS trade (dachdecker) */
+const TRADE_IDENTITY_KEYWORDS = [
+  "dachdecker",
+  "dachdeckerin",
+  "dachdeckerpolier",
+  "dachdeckermeister",
+  "bedachung",
+  "dachsanierung",
+  "dachtechnik",
+  "ziegeldeckung",
+  "dachpappe",
+  "bitumen",
+  "steildach",
+  "unterdach",
+  "flachdach",
+];
+
+/** Primary keywords from OTHER trades — reject if title matches these without any TRADE_IDENTITY match */
+const OTHER_TRADE_KEYWORDS = [
+  "elektro",
+  "elektriker",
+  "elektroinstallateur",
+  "elektromonteur",
+  "elektroniker",
+  "automatiker",
+  "schaltanlagen",
+  "starkstrom",
+  "schwachstrom",
+  "sanitär",
+  "sanitaer",
+  "sanitärinstallateur",
+  "heizung",
+  "heizungsinstallateur",
+  "heizungsmonteur",
+  "klima",
+  "klimatechniker",
+  "kälte",
+  "kältetechniker",
+  "lüftung",
+  "lüftungsmonteur",
+  "spengler",
+  "bauspengler",
+  "fassadenspengler",
+  "zimmermann",
+  "holzbau",
+  "holzkonstruktion",
+  "schreiner",
+  "schreinerei",
+  "tischler",
+  "möbel",
+  "bodenleger",
+  "parkettleger",
+  "plattenleger",
+  "fliesen",
+  "fliesenleger",
+  "estrich",
+  "gärtner",
+  "gaertner",
+  "garten",
+  "landschaftsgärtner",
+  "baumpflege",
+  "gartenbau",
 ];
 
 interface NormalizedParams {
@@ -203,10 +261,17 @@ function scoreScrapedJob(job: ScrapedJob): number {
     `${job.description} ${job.fullDescription} ${requirements.join(" ")} ${responsibilities.join(" ")}`
   );
 
+  const titleTradeIdentityHits = countKeywordHits(title, TRADE_IDENTITY_KEYWORDS);
+  const titleOtherTradeHits = countKeywordHits(title, OTHER_TRADE_KEYWORDS);
   const titleSignalHits = countKeywordHits(title, CORE_TITLE_KEYWORDS);
   const hardNegativeTitleHits = countKeywordHits(title, HARD_NEGATIVE_TITLE_KEYWORDS);
   const bodySignalHits = countKeywordHits(body, POSITIVE_KEYWORDS);
   const bodyNegativeHits = countKeywordHits(body, NEGATIVE_KEYWORDS);
+
+  // Title mentions another trade but NOT this trade → reject
+  if (titleOtherTradeHits > 0 && titleTradeIdentityHits === 0) {
+    return -100;
+  }
 
   if (hardNegativeTitleHits > 0 && titleSignalHits === 0) {
     return -100;
