@@ -42,8 +42,7 @@ export function buildJobPostingSchema(job: JobListing) {
     industry: "Dachdeckerei & Gebäudehülle",
     hiringOrganization: {
       "@type": "Organization",
-      name: job.company?.trim() || "Arbeitgeber auf dachdeckerjobs.ch",
-      ...(job.companyUrl ? { sameAs: job.companyUrl } : {}),
+      name: "Arbeitgeber via dachdeckerjobs.ch",
     },
     jobLocation: {
       "@type": "Place",
