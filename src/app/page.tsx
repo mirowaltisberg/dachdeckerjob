@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/json-ld";
 import { buildJobPostingSchema } from "@/lib/job-schema";
 
 export const metadata: Metadata = {
-  title: "Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
+  title: "384 Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
   description:
     "Finde aktuelle Dachdecker Jobs in der Schweiz. Stellen für Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer & mehr. Jetzt Lebenslauf einreichen.",
   alternates: { canonical: "/" },

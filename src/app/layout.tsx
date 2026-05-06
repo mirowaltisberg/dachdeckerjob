@@ -19,7 +19,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.dachdeckerjobs
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
+    default: "384 Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
     template: "%s | dachdeckerjobs.ch",
   },
   description:
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     "Stellen Dachdeckerbranche Schweiz",
   ],
   openGraph: {
-    title: "Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
+    title: "384 Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
     description:
       "Finde aktuelle Dachdecker Jobs in der Schweiz. Stellen für Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer & mehr. Jetzt Lebenslauf einreichen.",
     type: "website",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
+    title: "384 Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
     description:
       "Finde aktuelle Dachdecker Jobs in der Schweiz. Stellen für Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer & mehr. Jetzt Lebenslauf einreichen.",
   },
