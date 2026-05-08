@@ -19,11 +19,11 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.dachdeckerjobs
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
+    default: "Dachdecker Jobs Schweiz 2026 | Stellenangebote & Lohn",
     template: "%s | dachdeckerjobs.ch",
   },
   description:
-    "Finde aktuelle Dachdecker Jobs in der Schweiz. Stellen für Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer & mehr. Jetzt Lebenslauf einreichen.",
+    "Finde Dachdecker Jobs und Stellenangebote in der Schweiz: Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer, Temporär, Festanstellung und Lohninfos.",
   keywords: [
     "Dachdeckerjobs",
     "Dachdeckerjobs Schweiz",
@@ -40,11 +40,18 @@ export const metadata: Metadata = {
     "Zimmermann Dach",
     "Gebäudehülle Jobs Schweiz",
     "Stellen Dachdeckerbranche Schweiz",
+    "Dachdecker Job Schweiz",
+    "Dachdecker Stellen Schweiz",
+    "Dachdecker Stellenangebote",
+    "Abdichter Stellenangebote",
+    "Fassadenbauer Jobs Schweiz",
+    "Dachdecker Temporär",
+    "Dachdecker Lohn Schweiz",
   ],
   openGraph: {
-    title: "Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
+    title: "Dachdecker Jobs Schweiz 2026 | Stellenangebote & Lohn",
     description:
-      "Finde aktuelle Dachdecker Jobs in der Schweiz. Stellen für Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer & mehr. Jetzt Lebenslauf einreichen.",
+      "Finde Dachdecker Jobs und Stellenangebote in der Schweiz: Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer, Temporär, Festanstellung und Lohninfos.",
     type: "website",
     url: "/",
     siteName: "dachdeckerjobs.ch",
@@ -52,9 +59,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dachdecker Jobs Schweiz 2026 | Offene Stellen finden",
+    title: "Dachdecker Jobs Schweiz 2026 | Stellenangebote & Lohn",
     description:
-      "Finde aktuelle Dachdecker Jobs in der Schweiz. Stellen für Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer & mehr. Jetzt Lebenslauf einreichen.",
+      "Finde Dachdecker Jobs und Stellenangebote in der Schweiz: Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer, Temporär, Festanstellung und Lohninfos.",
   },
   alternates: {
     canonical: "/",
@@ -121,7 +128,12 @@ const websiteSchema = {
   url: SITE_URL,
   description:
     "Die spezialisierte Jobbörse für Dachdecker-Fachkräfte in der Schweiz.",
-  inLanguage: "de",
+  inLanguage: "de-CH",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${SITE_URL}/?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  },
 };
 
 export default function RootLayout({

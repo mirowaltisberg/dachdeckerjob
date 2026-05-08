@@ -6,9 +6,9 @@ dachdeckerjob.ch ist eine Nischen-Jobbörse für die Schweizer Dachdeckerbranche
 
 ## Wichtige Seiten
 
-- [Startseite](https://www.dachdeckerjob.ch/): Jobsuche mit Filtern nach Beruf, Ort, Umkreis, Pensum
-- [Dachdecker EFZ Jobs Zürich](https://www.dachdeckerjob.ch/dachdeckerjobs/dachdecker-efz/zuerich): Beispiel-Landingpage
-- [Sitemap](https://www.dachdeckerjob.ch/sitemap.xml): Alle verfügbaren Seiten
+- [Startseite](https://www.dachdeckerjobs.ch/): Jobsuche mit Filtern nach Beruf, Ort, Umkreis, Pensum
+- [Dachdecker EFZ Jobs Zürich](https://www.dachdeckerjobs.ch/dachdeckerjobs/dachdecker-efz/zuerich): Beispiel-Landingpage
+- [Sitemap](https://www.dachdeckerjobs.ch/sitemap.xml): Alle verfügbaren Seiten
 
 ## Kerninformationen
 
@@ -29,5 +29,5 @@ dachdeckerjob.ch ist eine Nischen-Jobbörse für die Schweizer Dachdeckerbranche
 
 ## Kontakt
 
-- **Website**: https://www.dachdeckerjob.ch
+- **Website**: https://www.dachdeckerjobs.ch
 - **Branche**: Personalvermittlung / Jobbörse — Dachdeckerbranche Schweiz
