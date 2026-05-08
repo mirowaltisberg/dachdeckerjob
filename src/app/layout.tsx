@@ -19,11 +19,11 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.dachdeckerjobs
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Dachdecker Jobs Schweiz 2026 | Stellenangebote & Lohn",
+    default: "Dachdecker Jobs Schweiz 2026 | Stellen, Lohn & Ausbildung",
     template: "%s | dachdeckerjobs.ch",
   },
   description:
-    "Finde Dachdecker Jobs und Stellenangebote in der Schweiz: Dachdecker EFZ, Abdichter, Spengler, Fassadenbauer, Temporär, Festanstellung und Lohninfos.",
+    "Dachdecker Jobs Schweiz: Polybauer (Bedachung, Spenglerei, Fassadenbau, Abdichten), Vorarbeiter, Projektleiter. Lohn, Ausbildung, GAV Polybau.",
   keywords: [
     "Dachdeckerjobs",
     "Dachdeckerjobs Schweiz",
