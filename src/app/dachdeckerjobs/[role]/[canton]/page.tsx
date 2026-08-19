@@ -28,7 +28,7 @@ import { EditorialIntro } from "@/app/_components/editorial-intro";
 
 export const revalidate = 3600;
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://dachdeckerjobs.ch";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.dachdeckerjobs.ch";
 
 interface LandingPageProps {
   params: Promise<{ role: string; canton: string }>;

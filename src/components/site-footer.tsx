@@ -135,7 +135,7 @@ export function SiteFooter() {
           </h3>
           <div className="flex flex-wrap gap-x-4 gap-y-1.5">
             <a href="https://www.elektrojob.ch" target="_blank" rel="noopener" className="text-sm hover:text-white transition-colors">Elektrojobs</a>
-            <a href="https://sanitaerjob.ch" target="_blank" rel="noopener" className="text-sm hover:text-white transition-colors">Sanitärjobs</a>
+            <a href="https://www.sanitaerjobs.ch" target="_blank" rel="noopener" className="text-sm hover:text-white transition-colors">Sanitärjobs</a>
             <a href="https://heizungjob.ch" target="_blank" rel="noopener" className="text-sm hover:text-white transition-colors">Heizungsjobs</a>
             <a href="https://spenglerjob.ch" target="_blank" rel="noopener" className="text-sm hover:text-white transition-colors">Spenglerjobs</a>
             <a href="https://schreinerjob.ch" target="_blank" rel="noopener" className="text-sm hover:text-white transition-colors">Schreinerjobs</a>
