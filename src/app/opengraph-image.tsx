@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "dachdeckerjobs.ch — Dachdeckerjobs Schweiz";
+export const alt = "dachdeckerjobs.ch — Dach- und Fassadenbaujobs Schweiz";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -13,26 +13,25 @@ export default function OgImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+          alignItems: "flex-start",
+          justifyContent: "space-between",
+          padding: "72px 86px",
+          background: "#eaf5fc",
+          borderTop: "18px solid #d6563c",
           fontFamily: "sans-serif",
         }}
       >
-        {/* Roof icon */}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 48 48"
-          width="120"
-          height="120"
-          style={{ marginBottom: 32 }}
-        >
-          <path
-            d="M4 32L24 12l20 20H4z"
-            fill="#B06030"
-          />
-          <rect x="30" y="14" width="4" height="10" rx="0.5" fill="#8B4513"/>
-        </svg>
+        <div style={{ display: "flex", alignItems: "center", gap: 26 }}>
+          <div style={{ width: 112, height: 90, display: "flex", position: "relative" }}>
+            <span style={{ position: "absolute", width: 75, height: 11, left: 0, top: 28, background: "#154f78", transform: "rotate(-39deg)" }} />
+            <span style={{ position: "absolute", width: 75, height: 11, right: 0, top: 28, background: "#154f78", transform: "rotate(39deg)" }} />
+            <span style={{ position: "absolute", width: 86, height: 8, left: 13, bottom: 15, background: "#d6563c" }} />
+            <span style={{ position: "absolute", width: 112, height: 8, left: 0, bottom: 0, background: "#154f78" }} />
+          </div>
+          <div style={{ color: "#154f78", fontSize: 24, fontWeight: 800, letterSpacing: 3 }}>
+            STEILDACH · FLACHDACH · GEBÄUDEHÜLLE
+          </div>
+        </div>
 
         {/* Brand name */}
         <div
@@ -42,13 +41,13 @@ export default function OgImage() {
             gap: 0,
           }}
         >
-          <span style={{ fontSize: 72, fontWeight: 900, color: "#f8fafc", letterSpacing: -1 }}>
-            Dachdecker
+          <span style={{ fontSize: 84, fontWeight: 900, color: "#0b2233", letterSpacing: -4 }}>
+            dachdecker
           </span>
-          <span style={{ fontSize: 72, fontWeight: 900, color: "#B06030", letterSpacing: -1 }}>
+          <span style={{ fontSize: 84, fontWeight: 900, color: "#d6563c", letterSpacing: -4 }}>
             job
           </span>
-          <span style={{ fontSize: 52, fontWeight: 400, color: "#94a3b8", letterSpacing: -1 }}>
+          <span style={{ fontSize: 58, fontWeight: 700, color: "#154f78", letterSpacing: -2 }}>
             .ch
           </span>
         </div>
@@ -57,12 +56,12 @@ export default function OgImage() {
         <div
           style={{
             fontSize: 28,
-            color: "#94a3b8",
+            color: "#3e596d",
             marginTop: 20,
             letterSpacing: 0.5,
           }}
         >
-          Die Jobbörse für Dachdecker-Fachkräfte in der Schweiz
+          Dachdeckerstellen. Vom First bis zur Traufe.
         </div>
       </div>
     ),

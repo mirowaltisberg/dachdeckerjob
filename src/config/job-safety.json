@@ -1,0 +1,113 @@
+{
+  "trade": "dachdecker",
+  "idPattern": "^scraped-dachdecker-[0-9a-f]{12}$",
+  "allowedSources": ["google", "indeed", "linkedin"],
+  "tradeContextPatterns": [
+    "dachdecker", "dachdeckerei", "bedachung", "steildach", "flachdach",
+    "dachtechnik", "dachsanierung", "gebäudehülle", "gebaeudehuelle",
+    "fassadenbau", "fassadenbekleidung", "abdichtung"
+  ],
+  "hardNegativeTitlePatterns": [
+    "pflegefach", "spitex", "gesundheit", "sozial", "verkauf", "sales",
+    "marketing", "jurist", "anwalt", "fahrer", "chauffeur", "logistik",
+    "reinigung", "koch", "küche", "kueche", "arzt", "medizin", "software",
+    "developer", "data scientist", "human resources", "product manager",
+    "product owner", "frontend", "backend", "devops", "buchhalt", "accounting",
+    "controller", "internship", "praktikum", "verkaufsberater", "ingénieur",
+    "technicien", "électricien", "elettricista", "disegnatore"
+  ],
+  "otherTradeTitlePatterns": [
+    "elektro", "elektriker", "heizung", "heizungsinstallateur", "heizungsmonteur",
+    "wärmepump", "waermepump", "lüftung", "lueftung", "kälte", "kaelte",
+    "klima", "spengler", "zimmermann", "holzbau", "schreiner", "sanitär",
+    "sanitaer", "bodenleger", "plattenleger", "maler", "gipser", "maurer",
+    "gärtner", "gaertner", "hlks", "hvac"
+  ],
+  "highSpecificityTitles": [
+    { "pattern": "dachdecker.*(?:polier|vorarbeit)|(?:polier|vorarbeit).*dachdeck", "publicTitle": "Vorarbeiter/in Dach", "profile": "leadership" },
+    { "pattern": "dachdecker|dachdeckungsfach|bedachungsfach", "publicTitle": "Dachdecker/in", "profile": "pitched" },
+    { "pattern": "flachdach(?:bauer|fach|monteur)|flachdachisol|dachabdichter|abdichter.*(?:dach|gebäudehülle|gebaeudehuelle)", "publicTitle": "Fachperson Flachdach", "profile": "flat" },
+    { "pattern": "fassadenbauer|fassadenmonteur|fassadenbekleid", "publicTitle": "Fassadenbauer/in", "profile": "facade" },
+    { "pattern": "servicemonteur.*dach|dach.*servicemonteur", "publicTitle": "Servicemonteur/in Dach", "profile": "service" }
+  ],
+  "broadTitlesRequiringTradeContext": [
+    { "pattern": "projektleit|bauleit|bauführ|baufuehr", "publicTitle": "Projektleiter/in Gebäudehülle", "profile": "leadership" },
+    { "pattern": "vorarbeit|polier|teamleit", "publicTitle": "Vorarbeiter/in Dach", "profile": "leadership" },
+    { "pattern": "arbeitsvorbereit|kalkulat|technisch.*sachbearbeit", "publicTitle": "Fachperson Planung Gebäudehülle", "profile": "planning" },
+    { "pattern": "monteur|fachperson|handwerker|mitarbeit", "publicTitle": "Fachperson Dach", "profile": "pitched" }
+  ],
+  "profiles": {
+    "leadership": {
+      "responsibilities": [
+        "Dach- und Gebäudehüllenprojekte planen, koordinieren und bis zur Übergabe begleiten",
+        "Termine, Qualität und Arbeitssicherheit auf der Baustelle sicherstellen",
+        "Ausführung mit Bauleitung, Fachplanung und Montageteams abstimmen"
+      ],
+      "requirements": [
+        "Ausbildung und fundierte Praxis im Dach- oder Gebäudehüllenbereich",
+        "Erfahrung in der Leitung oder Koordination von Baustellen",
+        "Selbstständige, zuverlässige und sicherheitsbewusste Arbeitsweise"
+      ]
+    },
+    "planning": {
+      "responsibilities": [
+        "Ausmasse, Materialbedarf und Ausführungsdetails für Dacharbeiten vorbereiten",
+        "Offerten, Pläne und Projektdokumentation sorgfältig bearbeiten",
+        "Liefertermine und technische Schnittstellen mit den Beteiligten koordinieren"
+      ],
+      "requirements": [
+        "Ausbildung oder fundierte Praxis im Gebäudehüllenbereich",
+        "Verständnis für Ausmass, Konstruktion und technische Dokumentation",
+        "Strukturierte, sorgfältige und lösungsorientierte Arbeitsweise"
+      ]
+    },
+    "pitched": {
+      "responsibilities": [
+        "Steildächer vorbereiten, eindecken und Anschlüsse fachgerecht ausführen",
+        "Unterdächer, Dämmungen und Dachaufbauten nach Plan montieren",
+        "Baustellen sichern und Arbeiten wetterfest fertigstellen"
+      ],
+      "requirements": [
+        "Ausbildung oder fundierte Erfahrung als Dachdecker/in",
+        "Sicherer Umgang mit Dachmaterialien, Werkzeugen und Absturzsicherung",
+        "Schwindelfreiheit sowie eine sorgfältige und zuverlässige Arbeitsweise"
+      ]
+    },
+    "flat": {
+      "responsibilities": [
+        "Flachdachaufbauten, Wärmedämmungen und Abdichtungen fachgerecht ausführen",
+        "Untergründe prüfen und Anschlüsse, Durchdringungen sowie Abschlüsse bearbeiten",
+        "Dichtheit und Ausführungsqualität kontrollieren"
+      ],
+      "requirements": [
+        "Praxis im Flachdach- oder Abdichtungsbereich",
+        "Kenntnisse der gebräuchlichen Bahnen, Dämmstoffe und Verarbeitungsverfahren",
+        "Sicherheitsbewusste und qualitätsorientierte Arbeitsweise"
+      ]
+    },
+    "facade": {
+      "responsibilities": [
+        "Unterkonstruktionen, Dämmungen und Fassadenbekleidungen montieren",
+        "Bauteilanschlüsse nach Plan ausführen und kontrollieren",
+        "Materialien präzise bearbeiten und Baustellenabläufe abstimmen"
+      ],
+      "requirements": [
+        "Ausbildung oder Erfahrung im Fassaden- oder Gebäudehüllenbau",
+        "Sicherer Umgang mit Plänen, Maschinen und persönlicher Schutzausrüstung",
+        "Präzise, belastbare und teamorientierte Arbeitsweise"
+      ]
+    },
+    "service": {
+      "responsibilities": [
+        "Schäden und Undichtigkeiten an Dächern systematisch beurteilen",
+        "Wartungs- und Reparaturarbeiten selbstständig ausführen",
+        "Einsätze und ausgeführte Arbeiten nachvollziehbar dokumentieren"
+      ],
+      "requirements": [
+        "Breite Berufspraxis im Dach- oder Gebäudehüllenbereich",
+        "Selbstständige Arbeitsweise und kundenorientiertes Auftreten",
+        "Führerausweis und verlässliche Einsatzplanung"
+      ]
+    }
+  }
+}

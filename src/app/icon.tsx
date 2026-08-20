@@ -13,22 +13,16 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#B06030",
-          borderRadius: "10px",
+          background: "#eaf5fc",
+          borderRadius: "5px",
         }}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 48 48"
-          width="33"
-          height="33"
-        >
-          <path
-            d="M4 32L24 12l20 20H4z"
-            fill="white"
-          />
-          <rect x="30" y="14" width="4" height="10" rx="0.5" fill="rgba(255,255,255,0.7)"/>
-        </svg>
+        <div style={{ width: 38, height: 32, display: "flex", position: "relative" }}>
+          <span style={{ position: "absolute", width: 25, height: 4, left: 0, top: 10, background: "#154f78", transform: "rotate(-40deg)" }} />
+          <span style={{ position: "absolute", width: 25, height: 4, right: 0, top: 10, background: "#154f78", transform: "rotate(40deg)" }} />
+          <span style={{ position: "absolute", width: 30, height: 3, left: 4, bottom: 5, background: "#d6563c" }} />
+          <span style={{ position: "absolute", width: 38, height: 3, left: 0, bottom: 0, background: "#154f78" }} />
+        </div>
       </div>
     ),
     { ...size }

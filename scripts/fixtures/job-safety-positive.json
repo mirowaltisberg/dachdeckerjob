@@ -1,0 +1,79 @@
+{
+  "jobs": [
+    {
+      "trade": "dachdecker",
+      "id": "scraped-dachdecker-ff352569c3a9",
+      "jobUrl": "https://jobs.example.ch/dach-1",
+      "source": "indeed",
+      "title": "Dachdecker EFZ",
+      "company": "Beispiel Bedachungen AG",
+      "location": "Zürich, Zürich",
+      "type": "Vollzeit",
+      "workload": "100%",
+      "datePosted": "$TODAY",
+      "description": "Eindecken von Steildächern und Ausführen von Anschlüssen in der Region Zürich.",
+      "expectedDisposition": "ACCEPT",
+      "expectedPublicTitle": "Dachdecker/in EFZ"
+    },
+    {
+      "trade": "dachdecker",
+      "id": "scraped-dachdecker-aefd455e9639",
+      "jobUrl": "https://jobs.example.ch/dach-2",
+      "source": "linkedin",
+      "title": "Projektleiter Gebäudehülle 80–100%",
+      "company": "Muster Gebäudehülle GmbH",
+      "location": "Bern, Bern",
+      "type": "Festanstellung",
+      "workload": "80-100%",
+      "datePosted": "$TODAY",
+      "description": "Koordination von Dachprojekten, Terminen und Fachpartnern vom Start bis zur Übergabe.",
+      "expectedDisposition": "ACCEPT",
+      "expectedPublicTitle": "Projektleiter/in Gebäudehülle"
+    },
+    {
+      "trade": "dachdecker",
+      "id": "scraped-dachdecker-ac877da825c2",
+      "jobUrl": "https://jobs.example.ch/dach-3",
+      "source": "google",
+      "title": "Flachdachmonteur",
+      "company": "Flachdach Beispiel AG",
+      "location": "Basel, Basel-Stadt",
+      "type": "Vollzeit",
+      "workload": "100%",
+      "datePosted": "$TODAY",
+      "description": "Ausführen von Flachdachaufbauten, Dämmungen und Abdichtungen.",
+      "expectedDisposition": "ACCEPT",
+      "expectedPublicTitle": "Fachperson Flachdach"
+    },
+    {
+      "trade": "dachdecker",
+      "id": "scraped-dachdecker-c9c806fa8404",
+      "jobUrl": "https://jobs.example.ch/dach-4",
+      "source": "indeed",
+      "title": "Fassadenbauer EFZ",
+      "company": "Fassaden Muster AG",
+      "location": "Luzern, Luzern",
+      "type": "Vollzeit",
+      "workload": "80-100%",
+      "datePosted": "$TODAY",
+      "description": "Montieren von Unterkonstruktionen, Dämmungen und Fassadenbekleidungen.",
+      "expectedDisposition": "ACCEPT",
+      "expectedPublicTitle": "Fassadenbauer/in EFZ"
+    },
+    {
+      "trade": "dachdecker",
+      "id": "scraped-dachdecker-a5890915928a",
+      "jobUrl": "https://jobs.example.ch/dach-efz-token",
+      "source": "indeed",
+      "title": "Dachdecker EFZPlus",
+      "company": "Token Test AG",
+      "location": "Zug, Zug",
+      "type": "Vollzeit",
+      "workload": "100%",
+      "datePosted": "$TODAY",
+      "description": "Dachaufbauten vorbereiten und verschiedene Eindeckungen im Einsatzgebiet Zug ausführen.",
+      "expectedDisposition": "ACCEPT",
+      "expectedPublicTitle": "Dachdecker/in"
+    }
+  ]
+}

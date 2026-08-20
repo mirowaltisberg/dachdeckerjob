@@ -8,19 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: ["/"],
-        disallow: [
-          "/api/",
-          "/arbeitgeber/login",
-          "/arbeitgeber/kandidaten",
-          "/?*sort=",
-          "/?*type=",
-          "/?*workload=",
-          "/?*offset=",
-          "/?*q=",
-          "/?*radiusKm=",
-          "/?*remote=",
-          "/?*postedWithinDays=",
-        ],
+        disallow: ["/api/", "/arbeitgeber/login", "/arbeitgeber/kandidaten"],
       },
       {
         userAgent: "GPTBot",

@@ -1,33 +1,21 @@
-# dachdeckerjob.ch
+# dachdeckerjobs.ch
 
-> Die spezialisierte Jobbörse für Dachdecker-Fachkräfte in der Schweiz.
+> Stellenangebote für Dach- und Fassadenbau-Fachkräfte in der Schweiz.
 
-dachdeckerjob.ch ist eine Nischen-Jobbörse für die Schweizer Dachdeckerbranche. Die Plattform richtet sich an Dachdecker EFZ, Abdichter, Flachdachspezialisten, Steildachspezialisten, Dachdeckerpoliere, Dachdeckermeister, Bauführer Gebäudehülle, Projektleiter Dachtechnik, Dachsanierer, Unterdachspezialisten, Photovoltaik-Dachmonteure und Bitumen-Fachkräfte.
+dachdeckerjobs.ch bündelt öffentlich zugängliche Stelleninserate mit klarem Bezug zu Dach und Gebäudehülle. Dazu gehören Stellen für Dachdeckerinnen und Dachdecker, Flachdach- und Fassadenfachkräfte, Servicemonteure sowie Vorarbeiter und Projektleiter Gebäudehülle.
 
 ## Wichtige Seiten
 
-- [Startseite](https://www.dachdeckerjobs.ch/): Jobsuche mit Filtern nach Beruf, Ort, Umkreis, Pensum
-- [Dachdecker EFZ Jobs Zürich](https://www.dachdeckerjobs.ch/dachdeckerjobs/dachdecker-efz/zuerich): Beispiel-Landingpage
-- [Sitemap](https://www.dachdeckerjobs.ch/sitemap.xml): Alle verfügbaren Seiten
+- [Startseite und Stellensuche](https://www.dachdeckerjobs.ch/)
+- [Ausbildung Dachdecker/in EFZ](https://www.dachdeckerjobs.ch/dachdecker-ausbildung)
+- [Lohn und GAV richtig einordnen](https://www.dachdeckerjobs.ch/lohn-dachdecker-schweiz)
+- [Sitemap](https://www.dachdeckerjobs.ch/sitemap.xml)
 
-## Kerninformationen
+## Quellenstandard
 
-- **Sprache**: Deutsch (Schweizer Markt)
-- **Regionen**: Alle Schweizer Kantone — Zürich, Bern, Basel, Aargau, St. Gallen, Luzern, Solothurn, Zug und weitere
-- **Berufe**: Dachdecker EFZ, Abdichter, Flachdachspezialist, Steildachspezialist, Dachdeckerpolier, Dachdeckermeister, Bauführer Gebäudehülle, Projektleiter Dachtechnik, Dachsanierer, Unterdachspezialist, Photovoltaik-Dachmonteur, Bitumen-Fachkraft
-- **Lohndaten (Richtwerte, CHF/Jahr)**:
-  - Bauführer Gebäudehülle: 90'000 – 115'000
-  - Projektleiter Dachtechnik: 85'000 – 110'000
-  - Dachdeckermeister: 80'000 – 100'000
-  - Dachdeckerpolier: 75'000 – 92'000
-  - Steildachspezialist: 70'000 – 85'000
-  - Flachdachspezialist: 68'000 – 85'000
-  - Dachsanierer: 68'000 – 82'000
-  - Abdichter: 65'000 – 80'000
-  - Dachdecker EFZ: 65'000 – 80'000
-  - Photovoltaik-Dachmonteur: 65'000 – 82'000
+Berufs- und Ausbildungsinformationen stützen sich auf das offizielle Schweizer Portal berufsberatung.ch. Hinweise zum Gesamtarbeitsvertrag verlinken auf die aktuelle Übersicht des Staatssekretariats für Wirtschaft SECO. dachdeckerjobs.ch publiziert keine eigenen pauschalen Lohnbänder.
 
 ## Kontakt
 
 - **Website**: https://www.dachdeckerjobs.ch
-- **Branche**: Personalvermittlung / Jobbörse — Dachdeckerbranche Schweiz
+- **E-Mail**: info@dachdeckerjobs.ch
