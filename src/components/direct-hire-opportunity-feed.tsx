@@ -3,7 +3,7 @@ import type { DirectHireOpportunity } from "@/lib/direct-hire-opportunities";
 
 export function DirectHireOpportunityFeed({ opportunities }: { opportunities: DirectHireOpportunity[] }) {
   if (opportunities.length === 0) return null;
-  return <div className="mt-3 space-y-3 sm:mt-4 sm:space-y-4" aria-label="Direktanstellungsprofile">
+  return <div className="mt-3 space-y-3 sm:mt-4 sm:space-y-4" role="region" aria-label="Direktanstellungsprofile">
     {opportunities.map((opportunity) => <article key={opportunity.id} className="job-card min-w-0 p-5 sm:p-6" data-direct-hire-opportunity={opportunity.id} data-nosnippet>
       <div className="flex min-w-0 flex-wrap items-center gap-2"><span className="inline-flex min-h-7 items-center border border-primary/35 bg-accent px-2.5 text-xs font-bold uppercase tracking-wide text-foreground">Direktanstellung</span><span className="text-xs font-semibold text-muted-foreground">Keine konkrete offene Stelle</span></div>
       <h3 className="mt-3 min-w-0 text-base font-bold text-foreground [overflow-wrap:anywhere] sm:text-xl">{opportunity.role}</h3>
